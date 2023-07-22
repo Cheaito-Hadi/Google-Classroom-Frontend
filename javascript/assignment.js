@@ -23,23 +23,22 @@ function addAssignment() {
 
     let assign = document.getElementById("assign")
     assign.addEventListener('click', async function () {
-        let description = document.getElementById("description").value;
-        let instructions = document.getElementById("instructions").value;
-        let time = document.getElementById("time").value;
+        let description = document.getElementById("title").value;
+        let instruction = document.getElementById("instruction").value;
+        let due_date = document.getElementById("due_date").value;
 
         let formData = new FormData();
         formData.append("title", description)
-        formData.append("instarction", instructions)
-        formData.append("due_date", time)
+        formData.append("instruction", instruction)
+        formData.append("due_date", due_date)
 
         let options = {
-            method: "POST",
+            method: 'POST',
             body: formData
         }
         try {
             const response = await fetch("http://localhost/Google-Classroom-Backend/addAssignment.php", options)
-            let json = response.json()
-            console.log(json)
+            let json = await response.json();
         }
         catch (e){
             console.log("Failed to fetch", e)
@@ -47,3 +46,4 @@ function addAssignment() {
     })
 
 }
+addAssignment();

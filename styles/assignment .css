@@ -73,6 +73,7 @@ body{
     font-weight: 400px;
     border-radius: 4px 0px 0px 4px;
     background-color: #1967d2;
+    cursor: pointer;
 }
 
 .arrow {
@@ -114,7 +115,7 @@ body{
 }
 
 
-#description{
+#title{
     height: 50px;
     border: none;
     outline: none;
@@ -122,7 +123,7 @@ body{
     background-color: #ededed;
 }
 
-#instructions{
+#instruction{
     height: 150px;
     width: 100%;
     border: none;
