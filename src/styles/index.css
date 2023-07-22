@@ -1,0 +1,45 @@
+body{
+    font-family: "Roboto",Helvetica,Arial,sans-serif;
+    color: rgb(30,142,62);;
+}
+.main{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    padding-top: 5%;
+}
+.flex{
+    display: flex;
+}
+.main-container{
+    width: 50%;
+    height: 100%;
+}
+.header-title{
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 2.5rem;
+    margin-left: 2%;
+}
+.header{
+    border-bottom: 1px solid rgb(30,142,62);
+}
+.header-line{
+    justify-content: space-between;
+    align-items: baseline;
+    width: 100%;
+}
+.student-number{
+    margin-right: 2%;
+}
+.user-info{
+    padding-left: 2%;
+    gap: 2%;
+    align-items: center;
+    border-top: 0.0625rem solid #e0e0e0;
+    height: 3.75rem;
+    color: black;
+}
+.user-image{
+    border-radius: 50%;
+}
