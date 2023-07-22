@@ -6,6 +6,9 @@ body{
     margin:0;
     display: flex;
     flex-direction: column;
+    font-family: "Google Sans", Roboto, Arial, sans-serif;
+    font-size: 22px;
+    color: #7e8186;
 }
 
 .navbar {
@@ -15,6 +18,8 @@ body{
     height: 64px;
     border-style: none none solid none;
     border-color: #616368;
+    
+    padding-left: 20px;
 }
 
 .nav-1 {
@@ -25,6 +30,7 @@ body{
 
 .x-mark {
     fill: #888b8e;
+    
 }
 
 .nav-2 {
@@ -45,7 +51,7 @@ body{
 }
 
 .assignment {
-    font-size: 22px;
+    font-size: 30px;
     padding: 4px 12px;
     color: #616368;
 }
@@ -73,13 +79,14 @@ body{
     width: 20px;
     border-radius: 0px 4px 4px 0px;
     background-color: #1967d2;
+    margin-right: 20px;
 }
 
 
 .body-wrapper{
     display: flex;
     flex: 1;
-    background-color: blue;
+    background-color: white;
     gap: 20px;
 }
 
@@ -105,12 +112,6 @@ body{
 
 }
 
-
-.body-wrapper-right{
-    width: 30%;
-    height: 100vh;
-
-}
 
 #description{
     height: 50px;
@@ -140,6 +141,8 @@ body{
     flex-direction: column;
     gap: 40px;
     border-radius: 10px;
+    font-size: 22px;
+    font-weight: 900px;
 }
 
 .icon-container{
@@ -162,4 +165,34 @@ body{
 img{
     height: 38px;
     width: 38px;
+}
+
+.body-wrapper-right{
+    width: 15%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+}
+
+.info{
+    display: flex;
+    gap: 20px;
+}
+
+.option{
+    display: flex;
+    
+}
+
+.grey{
+    color: black;
+    background-color: #ededed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon-text{
+    text-align: center;
 }
