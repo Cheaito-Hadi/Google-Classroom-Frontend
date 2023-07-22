@@ -1,0 +1,41 @@
+body{
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Google Sans",Roboto,Arial,sans-serif;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    height: 70px;
+    border-style: none none solid none;
+    border-color: #616368;
+    padding-left: 20px;
+    
+}
+
+.nav-1{
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+}
+
+.nav-2{
+    display: flex;
+    justify-content: center;
+    width: 70%; 
+}
+
+.nav-wrapper{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.nav-3{
+    display: flex;
+    justify-content: flex-end;
+    width: 15%;
+}
