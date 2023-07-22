@@ -1,20 +1,20 @@
 let arrow2 = document.getElementById("arrow-2");
 
-postsArray = ['tech', 'softskilss', 'uix']
+classArray = ['tech', 'softskilss', 'uix']
+const classesList = document.getElementById("ul-2");
 
-const postsList = document.getElementById("ul-2");
-postsArray.forEach((post) => {
-    let listItem = document.createElement("li")
-    listItem.innerHTML = `
+classArray.forEach((post) => {
+    let listClass = document.createElement("li")
+    listClass.innerHTML = `
   <input type="checkbox">
   <span>${post}</span>`
-  ;
-    postsList.appendChild(listItem)
+        ;
+    classesList.appendChild(listClass)
 })
 
-function displayPosts() {
-    const postsList = document.getElementById("ul-2");
-    postsList.classList.toggle("hide")
+function displayClasses() {
+    const classesList = document.getElementById("ul-2");
+    classesList.classList.toggle("hide")
 }
 
-arrow2.addEventListener('click', displayPosts)
+arrow2.addEventListener('click', displayClasses)
