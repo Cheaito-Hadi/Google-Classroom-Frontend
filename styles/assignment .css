@@ -80,6 +80,7 @@ body{
     border-radius: 0px 4px 4px 0px;
     background-color: #1967d2;
     margin-right: 20px;
+    cursor: pointer;
 }
 
 
@@ -168,7 +169,7 @@ img{
 }
 
 .body-wrapper-right{
-    width: 15%;
+    width: 20%;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -195,4 +196,12 @@ img{
 
 .icon-text{
     text-align: center;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.hide{
+    display: none;
 }
