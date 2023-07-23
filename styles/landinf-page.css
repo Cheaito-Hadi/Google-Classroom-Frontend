@@ -12,7 +12,7 @@
 
 }
 
-.right-side-nav{
+.left-side-nav {
     font-size: 25px;
     font-weight: 450;
     color: #5f6368;
@@ -29,22 +29,29 @@
     height: 30px;
 }
 
-.right-side-nav svg{
+.left-side-nav svg {
     cursor: pointer;
 
 }
 
-.left-side-nav{
+.right-side-nav {
     font-size: 40px;
 
 }
 
-.left-side-nav img{
+.right-side-nav .profile-pic {
+    background-size: cover;
+    background-position: center;
     width: 40px;
     height:40px ;
     border-radius: 50%;
 }
 
+@media (max-width: 497px) {
+    .right-side-nav .profile-pic {
+        display: none;
+    }
+}
 .card-container{
     display: flex;
     flex-wrap: wrap;
@@ -53,8 +60,8 @@
 }
 .card{
     position: relative;
-    width: 18.75rem;
-    width: 18.75rem;
+    width: 20rem;
+        height: 18.75rem;
     display: flex;
     flex-direction: column;
     border: 1px solid black;
@@ -87,4 +94,11 @@
 }
 .description{
     height: 10rem;
+}
+.side-bar {
+    position: absolute;
+    z-index: 1;
+    background-color: red;
+    height: 100%;
+    width: 15rem;
 }
