@@ -66,6 +66,7 @@
     flex-direction: column;
     border: 1px solid black;
     border-radius: 20px;
+    cursor: pointer;
 }
 
 .top-side-card{
@@ -128,6 +129,7 @@
     display: flex;
     gap: 20px;
     padding: 20px;
+    cursor: pointer;
 }
 
 .sidebar-class-image {

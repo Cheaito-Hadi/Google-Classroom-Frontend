@@ -2,24 +2,28 @@ document.addEventListener("DOMContentLoaded", function () {
   var user_data = { role: "teacher", image: "/assets/images/profile.jpg" };
   var classes_data = [
     {
+      id: "1",
       name: "two class",
       section: "section1",
       image: "/assets/images/profile.jpg",
       description: "hello world",
     },
     {
+      id: "2",
       name: "tech class",
       section: "tech section",
       image: "/assets/images/profile.jpg",
       description: "hello tech",
     },
     {
+      id: "3",
       name: "soft class",
       section: "soft section",
       image: "/assets/images/profile.jpg",
       description: "hello soft",
     },
     {
+      id: "4",
       name: "hadi class",
       section: "soft section",
       image: "/assets/images/profile.jpg",
@@ -60,6 +64,9 @@ document.addEventListener("DOMContentLoaded", function () {
     );
     console.log(card);
     class_container.appendChild(card);
+    card.addEventListener("click", () => {
+      window.location.href = `stream.html?id=${ele.id}`;
+    });
   });
 
   function sidebarClasses(title, section, image) {
