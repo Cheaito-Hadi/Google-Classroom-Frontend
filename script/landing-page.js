@@ -60,8 +60,14 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-const sidebar = document
-  .querySelector(".show-side-bar")
-  .addEventListener("click", () => {
-    sidebar.classList.toggle("show");
-  });
+const show_sidebar = document.querySelector(".show-side-bar");
+const sidebar = document.querySelector(".side-bar");
+show_sidebar.addEventListener("click", () => {
+  sidebar.classList.toggle("show");
+});
+
+document.addEventListener("click", function (event) {
+  if (!sidebar.contains(event.target) && event.target !== show_sidebar) {
+    sidebar.classList.remove("show");
+  }
+});

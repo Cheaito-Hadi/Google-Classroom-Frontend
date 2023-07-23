@@ -96,9 +96,13 @@
     height: 10rem;
 }
 .side-bar {
+    display: none;
     position: absolute;
     z-index: 1;
     background-color: red;
     height: 100%;
     width: 15rem;
+}
+.side-bar.show {
+    display: block;
 }
