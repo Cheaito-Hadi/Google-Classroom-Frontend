@@ -139,3 +139,23 @@ body{
 .svgs :hover{
     background-color: #ebedef;
 }
+
+.ul-assign{
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.assign-li{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: #dadce0 1px solid;
+    gap: 10px;
+}
+
+.title-li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
