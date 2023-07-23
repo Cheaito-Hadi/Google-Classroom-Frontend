@@ -3,40 +3,7 @@ let user_data = {
   role: "teacher",
   image: "/assets/images/profile.jpg",
 };
-
-// let classes_data = [
-//   {
-//     id: "1",
-//     name: "two class",
-//     section: "section1",
-//     image: "/assets/images/profile.jpg",
-//     subject: "hello world",
-//   },
-//   {
-//     id: "2",
-//     name: "tech class",
-//     section: "tech section",
-//     image: "/assets/images/profile.jpg",
-//     subject: "hello tech",
-//   },
-//   {
-//     id: "3",
-//     name: "soft class",
-//     section: "soft section",
-//     image: "/assets/images/profile.jpg",
-//     subject: "hello soft",
-//   },
-//   {
-//     id: "4",
-//     name: "hadi class",
-//     section: "soft section",
-//     image: "/assets/images/profile.jpg",
-//     subject: "hello soft",
-//   },
-// ];
-
-// // Set the data in the local storage using the localStorage.setItem() method
-// localStorage.setItem("user", JSON.stringify(user_data));
+localStorage.setItem("user", JSON.stringify(user_data));
 // localStorage.setItem("classes", JSON.stringify(classes_data));
 
 const user = JSON.parse(localStorage.getItem("user"));
@@ -53,7 +20,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   } catch (error) {
     console.error(error);
   }
-const classes = JSON.parse(localStorage.getItem("classes"));
+  const classes = JSON.parse(localStorage.getItem("classes"));
 
   let profile_pic = document.querySelectorAll(".profile-pic");
   profile_pic.forEach((ele) => {
@@ -96,7 +63,11 @@ const classes = JSON.parse(localStorage.getItem("classes"));
   classes.forEach((ele) => {
     const sidebar_class = document.createElement("div");
     sidebar_class.classList.add("class");
-    sidebar_class.innerHTML = sidebarClasses(ele.name, ele.section, ele.image);
+    sidebar_class.innerHTML = sidebarClasses(
+      ele.class_name,
+      ele.section,
+      ele.image
+    );
     classes_sidebar.appendChild(sidebar_class);
   });
 });
@@ -215,9 +186,10 @@ classes.forEach((ele) => {
 
 const join_btn = document.querySelector(".join");
 join_btn.addEventListener("click", function () {
-  // Get the selected value
   const selectedOption = join_model.value;
+  let user_data = JSON.parse(localStorage.getItem("user"));
+  user_data.classes_id = selectedOption;
+  localStorage.setItem("user", JSON.stringify(user_data));
 
-  // Log the selected value to the console
   console.log("Selected Option:", selectedOption);
 });
