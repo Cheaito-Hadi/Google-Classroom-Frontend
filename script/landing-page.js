@@ -34,8 +34,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const user = JSON.parse(localStorage.getItem("user"));
   const classes = JSON.parse(localStorage.getItem("classes"));
 
-  let profile_pic = document.querySelector(".profile-pic");
-  profile_pic.style.backgroundImage = `url(${user.image})`;
+  let profile_pic = document.querySelectorAll(".profile-pic");
+  profile_pic.forEach((ele) => {
+    console.log(ele);
+    ele.style.backgroundImage = `url(${user.image})`;
+  });
 
   function displayClasses(title, section, description, image) {
     return `<div class="top-side-card">
@@ -58,12 +61,28 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log(card);
     class_container.appendChild(card);
   });
+
+  function sidebarClasses(title, section, image) {
+    return `<img src=${image} class="sidebar-class-image"  alt="" srcset="">
+            <div class="class-info">
+                <div class="class-name-sidebar">${title}</div>
+                <div class="class-section-sidebar">${section}</div>
+            </div>`;
+  }
+  const classes_sidebar = document.querySelector(".classes-list");
+  classes.forEach((ele) => {
+    const sidebar_class = document.createElement("div");
+    sidebar_class.classList.add("class");
+    sidebar_class.innerHTML = sidebarClasses(ele.name, ele.section, ele.image);
+    classes_sidebar.appendChild(sidebar_class);
+  });
 });
 
 const show_sidebar = document.querySelector(".show-side-bar");
 const sidebar = document.querySelector(".side-bar");
 show_sidebar.addEventListener("click", () => {
   sidebar.classList.toggle("show");
+
 });
 
 document.addEventListener("click", function (event) {
