@@ -98,6 +98,13 @@ class_info_btn.addEventListener("click", () => {
   join_create_list.classList.toggle("show");
 });
 
+
+const create_class = document.querySelector(".create-class");
+const class_model = document.querySelector(".create-class-model");
+create_class.addEventListener("click", () => {
+  class_model.classList.toggle("show");
+});
+
 document.addEventListener("click", function (event) {
   if (!sidebar.contains(event.target) && event.target !== show_sidebar) {
     sidebar.classList.remove("show");
@@ -108,11 +115,10 @@ document.addEventListener("click", function (event) {
   ) {
     join_create_list.classList.remove("show");
   }
+  if (!class_model.contains(event.target) && event.target !== create_class) {
+    class_model.classList.remove("show");
+  }
 });
-
-const create_class = document.querySelector(".create-class");
-create_class.addEventListener("click", () => {});
-
 
 
 const inputFields = document.querySelectorAll(".input");
