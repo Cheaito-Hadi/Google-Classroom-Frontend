@@ -112,3 +112,24 @@ document.addEventListener("click", function (event) {
 
 const create_class = document.querySelector(".create-class");
 create_class.addEventListener("click", () => {});
+
+
+
+const inputFields = document.querySelectorAll(".input");
+const miniLabels = document.querySelectorAll(".label");
+
+inputFields.forEach((inputField, index) => {
+  const miniLabel = miniLabels[index];
+
+  inputField.addEventListener("focus", () => {
+    miniLabel.classList.add("active");
+    inputField.removeAttribute("placeholder");
+  });
+
+  inputField.addEventListener("blur", () => {
+    if (inputField.value === "") {
+      miniLabel.classList.remove("active");
+      inputField.setAttribute("placeholder", miniLabel.innerHTML);
+    }
+  });
+});

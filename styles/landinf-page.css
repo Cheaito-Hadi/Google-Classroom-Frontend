@@ -161,3 +161,26 @@
 .join-create-list div{
     cursor: pointer;
 }
+
+.info{
+    display: flex;
+    flex-direction: column;
+    height: 40px;
+    
+}
+.input{
+    border: none;
+    border-bottom: 1px solid black;
+}
+.label {
+    display: none;
+  top: 8px;
+  left: 12px;
+  font-size: 14px;
+  color: #aaa;
+  pointer-events: none;
+  transition: all 0.3s;
+}
+.label.active{
+    display: block;
+}
