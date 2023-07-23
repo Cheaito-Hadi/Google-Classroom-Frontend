@@ -216,3 +216,31 @@ input:focus{
 .create-class-model.show{
     display: flex;
 }
+.join-class-model {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background-color: #fcfcfc;
+    padding: 40px;
+    border: 1px solid black;
+    display: none;
+    z-index: 1;
+    flex-direction: column;
+    font-size: 20px;
+}
+
+.join-class-model.show {
+    display: flex;
+}
+
+#course {
+    height: 50px;
+    width: 150px;
+    margin-bottom: 40px;
+}
+
+#course option {
+    font-size: 20px;
+}

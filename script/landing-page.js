@@ -3,44 +3,58 @@ let user_data = {
   role: "teacher",
   image: "/assets/images/profile.jpg",
 };
-let classes_data = [
-  {
-    id: "1",
-    name: "two class",
-    section: "section1",
-    image: "/assets/images/profile.jpg",
-    subject: "hello world",
-  },
-  {
-    id: "2",
-    name: "tech class",
-    section: "tech section",
-    image: "/assets/images/profile.jpg",
-    subject: "hello tech",
-  },
-  {
-    id: "3",
-    name: "soft class",
-    section: "soft section",
-    image: "/assets/images/profile.jpg",
-    subject: "hello soft",
-  },
-  {
-    id: "4",
-    name: "hadi class",
-    section: "soft section",
-    image: "/assets/images/profile.jpg",
-    subject: "hello soft",
-  },
-];
 
-// Set the data in the local storage using the localStorage.setItem() method
-localStorage.setItem("user", JSON.stringify(user_data));
-localStorage.setItem("classes", JSON.stringify(classes_data));
+// let classes_data = [
+//   {
+//     id: "1",
+//     name: "two class",
+//     section: "section1",
+//     image: "/assets/images/profile.jpg",
+//     subject: "hello world",
+//   },
+//   {
+//     id: "2",
+//     name: "tech class",
+//     section: "tech section",
+//     image: "/assets/images/profile.jpg",
+//     subject: "hello tech",
+//   },
+//   {
+//     id: "3",
+//     name: "soft class",
+//     section: "soft section",
+//     image: "/assets/images/profile.jpg",
+//     subject: "hello soft",
+//   },
+//   {
+//     id: "4",
+//     name: "hadi class",
+//     section: "soft section",
+//     image: "/assets/images/profile.jpg",
+//     subject: "hello soft",
+//   },
+// ];
+
+// // Set the data in the local storage using the localStorage.setItem() method
+// localStorage.setItem("user", JSON.stringify(user_data));
+// localStorage.setItem("classes", JSON.stringify(classes_data));
 
 const user = JSON.parse(localStorage.getItem("user"));
 const classes = JSON.parse(localStorage.getItem("classes"));
-document.addEventListener("DOMContentLoaded", function () {
+
+document.addEventListener("DOMContentLoaded", async function () {
+  try {
+    const response = await fetch(
+      "http://localhost/Google-Classroom-Backend/students/get-classes.php"
+    );
+    const res = await response.json();
+    console.log(res);
+    localStorage.setItem("classes", JSON.stringify(res.classes));
+  } catch (error) {
+    console.error(error);
+  }
+const classes = JSON.parse(localStorage.getItem("classes"));
+
   let profile_pic = document.querySelectorAll(".profile-pic");
   profile_pic.forEach((ele) => {
     console.log(ele);
@@ -60,14 +74,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const card = document.createElement("div");
     card.classList.add("card");
     card.innerHTML = displayClasses(
-      ele.name,
+      ele.class_name,
       ele.section,
       ele.subject,
       ele.image
     );
     class_container.appendChild(card);
     card.addEventListener("click", () => {
-      window.location.href = `stream.html?id=${ele.id}`;
+      window.location.href = `stream.html?id=${ele.id_classroom}`;
     });
   });
 
@@ -105,21 +119,6 @@ create_class.addEventListener("click", () => {
   class_model.classList.toggle("show");
 });
 
-document.addEventListener("click", function (event) {
-  if (!sidebar.contains(event.target) && event.target !== show_sidebar) {
-    sidebar.classList.remove("show");
-  }
-  if (
-    !join_create_list.contains(event.target) &&
-    event.target !== class_info_btn
-  ) {
-    join_create_list.classList.remove("show");
-  }
-  if (!class_model.contains(event.target) && event.target !== create_class) {
-    class_model.classList.remove("show");
-  }
-});
-
 const inputFields = document.querySelectorAll(".input");
 const miniLabels = document.querySelectorAll(".label");
 
@@ -150,10 +149,6 @@ async function createClass() {
   let section_input = document.getElementById("class-section-input").value;
   let subjecte_input = document.getElementById("class-subject-input").value;
   let room_input = document.getElementById("class-room-input").value;
-  //   console.log(name_input);
-  //   console.log(section_input);
-  //   console.log(subjecte_input);
-  //   console.log(room_input);
   const data = new FormData();
   data.append("user-id", user.id);
   data.append("name", name_input);
@@ -172,7 +167,41 @@ async function createClass() {
     );
     const res = await response.json();
     console.log(res);
+    localStorage.setItem("classes", JSON.stringify(res.classes));
+    localStorage.setItem("teacher-info", JSON.stringify(res.teacher));
   } catch (error) {
     console.error(error);
   }
 }
+
+const join_class_btn = document.querySelector(".join-class");
+const join_class_model = document.querySelector(".join-class-model");
+join_class_btn.addEventListener("click", () => {
+  join_class_model.classList.toggle("show");
+});
+
+document.querySelector(".cancel-join").addEventListener("click", () => {
+  join_class_model.classList.remove("show");
+});
+
+document.addEventListener("click", function (event) {
+  if (!sidebar.contains(event.target) && event.target !== show_sidebar) {
+    sidebar.classList.remove("show");
+  }
+  if (
+    !join_create_list.contains(event.target) &&
+    event.target !== class_info_btn
+  ) {
+    join_create_list.classList.remove("show");
+  }
+  if (!class_model.contains(event.target) && event.target !== create_class) {
+    class_model.classList.remove("show");
+  }
+  if (
+    !join_class_model.contains(event.target) &&
+    event.target !== join_class_btn
+  ) {
+    join_class_model.classList.remove("show");
+  }
+});
+
