@@ -2,7 +2,10 @@ const pages = {}
 
 pages.teacher_url  = "http://localhost/Google-Classroom-Backend/teachers.php";
 pages.student_url ="http://localhost/Google-Classroom-Backend/students.php";
-
+pages.number_url ="http://localhost/Google-Classroom-Backend/count_students.php";
+const teacher_body = document.getElementById("teacher-body")
+const student_body = document.getElementById("student-body")
+const number_of_students = document.getElementById("number-of-students")
 pages.createItem = (first_name,last_name) => {
     return `
     <div class="user-info flex">
@@ -11,8 +14,7 @@ pages.createItem = (first_name,last_name) => {
     </div>
     `
 }
-const teacher_body = document.getElementById("teacher-body")
-const student_body = document.getElementById("student-body")
+
 pages.getTeacher = async  () =>{
   try{
     const response = await fetch(pages.teacher_url)
@@ -40,7 +42,6 @@ pages.getStudent = async  () =>{
           const s_lastName = student.last_name;
           const new_item = pages.createItem(s_firstName,s_lastName)
           student_body.innerHTML += new_item
-          console.log(new_item)
       });
       
     }
@@ -49,13 +50,14 @@ pages.getStudent = async  () =>{
     }
   
   }
+pages.getNumber = async () => {
+    try{
+        const response = await fetch(pages.number_url)
+        const json = await response.json()
+        number_of_students.innerHTML = json+" students"
+    }
+    catch(e){
+        console.log("Error :" +e)
+    }
+}
   
-pages.page_index = async () => {
-    await pages.getTeacher()
-    
-
-}
-
-pages.loadForm = (page) => {
-    eval("pages.page_" + page + "();")
-}
