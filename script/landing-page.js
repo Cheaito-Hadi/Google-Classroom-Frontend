@@ -205,3 +205,19 @@ document.addEventListener("click", function (event) {
   }
 });
 
+const join_model = document.querySelector("#course");
+classes.forEach((ele) => {
+  const option_class = document.createElement("option");
+  option_class.innerHTML = ele.class_name;
+  option_class.value = ele.id_classroom;
+  join_model.appendChild(option_class);
+});
+
+const join_btn = document.querySelector(".join");
+join_btn.addEventListener("click", function () {
+  // Get the selected value
+  const selectedOption = join_model.value;
+
+  // Log the selected value to the console
+  console.log("Selected Option:", selectedOption);
+});
