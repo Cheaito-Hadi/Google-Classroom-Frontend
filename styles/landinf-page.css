@@ -9,21 +9,38 @@
     display: flex;
     align-items: center;
     gap: 20px;
+
 }
 
 .right-side-nav{
-    font-size: 20px;
+    font-size: 25px;
+    font-weight: 450;
+    color: #5f6368;
+    font-family: "Product Sans",Arial,Helvetica,sans-serif;
+}
+.classroom-logo{
+    display: flex;
+    align-items: center;
+    gap:5px
+}
+
+.google-logo{
+    width: 100px;
+    height: 30px;
 }
 
 .right-side-nav svg{
     cursor: pointer;
+
 }
 
 .left-side-nav{
     font-size: 40px;
+
 }
 
 .left-side-nav img{
-    width: 50px;
+    width: 40px;
+    height:40px ;
     border-radius: 50%;
 }
