@@ -97,3 +97,45 @@ body{
     align-items: center;
 }
 
+.classwork-container{
+    align-self: center;
+    max-height: 98vh;
+    height: 100%;
+    width: 50%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.top-wrap{
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn{
+    fill: white;
+    background-color: #202124;
+    border-radius: 20px;
+    padding: 10px  20px;
+    display: flex;
+    align-items: center;
+    color: white;
+    scale: 1.25;
+    font-weight: 900px;
+    cursor: pointer;
+    
+}
+
+.svg-wrapper{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    
+}
+
+.svgs{
+    cursor: pointer;
+}
+
+.svgs :hover{
+    background-color: #ebedef;
+}
