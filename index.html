@@ -13,7 +13,7 @@
                 <div class="header">
                     <div><h2 class="header-title">Teachers</h2></div>
                 </div>
-                <div class="body">
+                <div id="teacher-body">
                     
                 </div>
             </div>
@@ -24,11 +24,16 @@
                         <span class="student-number"><p></p></span>
                     </div>
                 </div>
-                <div class="body">
+                <div id="student-body">
 
                 </div>
             </div>
         </div>
     </div>
+    <script src="src/scripts/scripts.js"></script>
+    <script>
+        pages.getStudent()
+        pages.loadForm("index")
+    </script> 
 </body>
 </html>
