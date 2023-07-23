@@ -92,8 +92,23 @@ show_sidebar.addEventListener("click", () => {
 
 });
 
+const class_info_btn = document.querySelector(".class-info-btn");
+const join_create_list = document.querySelector(".join-create-list");
+class_info_btn.addEventListener("click", () => {
+  join_create_list.classList.toggle("show");
+});
+
 document.addEventListener("click", function (event) {
   if (!sidebar.contains(event.target) && event.target !== show_sidebar) {
     sidebar.classList.remove("show");
   }
+  if (
+    !join_create_list.contains(event.target) &&
+    event.target !== class_info_btn
+  ) {
+    join_create_list.classList.remove("show");
+  }
 });
+
+const create_class = document.querySelector(".create-class");
+create_class.addEventListener("click", () => {});
