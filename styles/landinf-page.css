@@ -1,0 +1,29 @@
+.navbar-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid rgb(199, 187, 187);
+    align-items: center;
+}
+.nav-items{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.right-side-nav{
+    font-size: 20px;
+}
+
+.right-side-nav svg{
+    cursor: pointer;
+}
+
+.left-side-nav{
+    font-size: 40px;
+}
+
+.left-side-nav img{
+    width: 50px;
+    border-radius: 50%;
+}
