@@ -39,9 +39,7 @@
     cursor: pointer;
     border-radius: 50%;
 }
-// .create-class:hover{
-//     background-color: #5f6368;
-// }
+
 .profile-pic {
     background-size: cover;
     background-position: center;
@@ -97,8 +95,10 @@
     border-radius: 50%;
 }
 .description{
-    height: 10rem;
+    margin: 20px;
+    font-size: 20px;
 }
+
 .side-bar {
     display: none;
     position: absolute;
