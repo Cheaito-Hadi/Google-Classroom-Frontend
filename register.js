@@ -1,4 +1,4 @@
-    register = () => {
+register = () => {
     const reg_btn = document.getElementById("register-btn")
 
     reg_btn.addEventListener('click', (e) => {
@@ -12,8 +12,8 @@
 
         let formdata = new FormData();
 
-        formdata.append("first-name", first_name);
-        formdata.append("last-name", last_name);
+        formdata.append("first_name", first_name);
+        formdata.append("last_name", last_name);
         formdata.append("email", email);
         formdata.append("password", password);
 
@@ -23,9 +23,12 @@
             redirect: 'follow'
         };
 
-        fetch("", requestOptions)
-            .then(response => console.log(response.json()))
-            .catch(error => console.log(error))
+        fetch("http://localhost/Google-Classroom-Backend/register.php", requestOptions)
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.log(error));
+
 
     })
 }
+register();
