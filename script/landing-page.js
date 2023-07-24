@@ -92,6 +92,11 @@ const sidebar = document.querySelector(".side-bar");
 show_sidebar.addEventListener("click", () => {
   sidebar.classList.toggle("show");
 });
+document.addEventListener("click", (event) => {
+  if (!sidebar.contains(event.target) && event.target !== show_sidebar) {
+    sidebar.classList.remove("show");
+  }
+});
 
 // + list (create,join)
 const class_info_btn = document.querySelector(".class-info-btn");
