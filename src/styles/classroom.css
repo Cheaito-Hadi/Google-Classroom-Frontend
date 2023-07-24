@@ -277,3 +277,42 @@ form{
   form button:hover {
     background-color: #404244;
   }
+  .meet{
+    margin-top:100px;
+    border-radius: 15px;
+    border : 1px solid #dadce0;
+    width: 200px;
+    height: 120px;
+    gap: 0.2cm;
+  }
+  .form-join{
+    display: flex;
+    justify-content: space-around;
+    align-content: flex-start;
+    align-items: center;
+    margin-right: 330px;
+  }
+  .meet-logo{
+    width: 30px;
+    height: 30px;
+    margin-left: 15px;
+  }
+  .meet-title{
+    display: flex;
+    gap: 0.2cm;
+     margin-top: 10px;
+  }
+  span{
+    margin-top: 10px;
+    color: #363738;
+  }
+  .btn-join{
+    border-radius: 5px;
+    border: none;
+    background-color: #202124;
+    color: #ffffff;
+    width: 160px;
+    height: 35px;
+    margin-top: 30px;
+    margin-left: 15px;
+  }
