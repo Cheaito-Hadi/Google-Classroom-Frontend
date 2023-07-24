@@ -102,3 +102,7 @@ update_btn.addEventListener("click", async () => {
     console.error(error);
   }
 });
+
+document.querySelector(".go-back").addEventListener("click", () => {
+  window.location.href = "landing-page.html";
+});
