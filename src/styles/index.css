@@ -53,6 +53,7 @@ body{
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
+    height: 150px;
 }
 .header-title{
     width: 100%;

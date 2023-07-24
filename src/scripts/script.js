@@ -1,12 +1,14 @@
 const pages = {}
 
 pages.assignment_url ="http://localhost/Google-Classroom-Backend/assignments.php"
+pages.turnedin_url ="http://localhost/Google-Classroom-Backend/turned_in.php"
 
 const teacher_names = document.getElementsByClassName("teacher-name")
 const assignment_title = document.getElementById("assignment-title")
 const assignment_instructions =document.getElementById("instructions")
 const assignment_due_date = document.getElementById("due-date")
 const assignment_post_date = document.getElementById("start-date")
+const state =document.getElementById("state")
 pages.getAssignmentInfo = async () => {
     try{
         const response = await fetch(pages.assignment_url)
@@ -30,6 +32,22 @@ pages.getAssignmentInfo = async () => {
     }
     catch(e){
         console.log("Error : "+e)
+    }
+}
+pages.getTurnedIn = async () => {
+    try{
+        const response = await fetch(pages.turnedin_url)
+        const json = await response.json()
+        if(json == 0 ){
+            state.innerHTML = "Assigned"
+        }
+        else{
+            state.style.color="black"
+            state.innerText ="Turned in"
+        }
+    }
+    catch(e){
+        console.log("Error :" +e)
     }
 }
 
