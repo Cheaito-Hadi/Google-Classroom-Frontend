@@ -23,18 +23,22 @@ document.addEventListener("DOMContentLoaded", async function () {
   const classes = JSON.parse(localStorage.getItem("classes"));
   const user = JSON.parse(localStorage.getItem("user"));
   // if there no classes , empty page
-  if (classes.length == 0) {
-  }
+  // if (classes.length == 0) {
+  // }
   // add user profile pic - navbar and sidebar
   let profile_pic = document.querySelectorAll(".profile-pic");
   profile_pic.forEach((ele) => {
     console.log(ele);
     ele.style.backgroundImage = `url(${user.image})`;
   });
-  const user_name_sideBar = (document.querySelector(".user-name").innerHTML =
-    user.name);
-  const user_email_sideBar = (document.querySelector(".user-email").innerHTML =
-    user.email);
+  const user_name = document.querySelectorAll(".user-name");
+  user_name.forEach((ele) => {
+    ele.innerHTML = user.name;
+  });
+  const user_email = document.querySelectorAll(".user-email");
+  user_email.forEach((ele) => {
+    ele.innerHTML = user.email;
+  });
 
   // display classes in card
   function displayClasses(title, section, subject, image) {
@@ -182,11 +186,8 @@ JSON.parse(localStorage.getItem("classes")).forEach((ele) => {
 const join_btn = document.querySelector(".join");
 join_btn.addEventListener("click", async function () {
   const selectedOption = join_model.value;
-  //   let user_data = JSON.parse(localStorage.getItem("user"));
-  //   user_data.classes_id.push(selectedOption);
-  //   localStorage.setItem("user", JSON.stringify(user_data));
   const joined_class = new FormData();
-  joined_class.append("user_id", user_data.id);
+  joined_class.append("user_id", user.id);
   joined_class.append("id_classRoom", selectedOption);
   try {
     const response = await fetch(
@@ -199,11 +200,21 @@ join_btn.addEventListener("click", async function () {
     console.log(response);
     const res = await response.json();
     console.log(res);
-    // localStorage.setItem("student", JSON.stringify(res.student));
-    // localStorage.setItem("teacher-info", JSON.stringify(res.teacher));
+    localStorage.setItem("student", JSON.stringify(res.student));
   } catch (error) {
     console.error(error);
   }
+});
+
+const user_info = document.querySelector(".right-side-nav .profile-pic");
+const user_info_list = document.querySelector(".user-info-list");
+user_info.addEventListener("click", () => {
+  user_info_list.classList.toggle("show");
+});
+
+const edit_profile = document.querySelector(".edit-profile");
+edit_profile.addEventListener("click", () => {
+  window.location.href = `edit-profile.html?user_id=${user.id}`;
 });
 
 // show and hide when you click outside the container
@@ -226,4 +237,8 @@ document.addEventListener("click", function (event) {
   ) {
     join_class_model.classList.remove("show");
   }
+  if (!user_info_list.contains(event.target) && event.target !== user_info) {
+    user_info_list.classList.remove("show");
+  }
 });
+

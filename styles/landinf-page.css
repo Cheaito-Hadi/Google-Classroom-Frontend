@@ -46,6 +46,7 @@
     width: 40px;
     height:40px ;
     border-radius: 50%;
+    cursor: pointer;
 }
 
 @media (max-width: 497px) {
@@ -243,4 +244,32 @@ input:focus{
 
 #course option {
     font-size: 20px;
+}
+.user-info-list {
+    display: none;
+    gap: 20px;
+    flex-direction: column;
+    position: absolute;
+    right: 20px;
+    top: 60px;
+    padding: 20px;
+    border: 1px solid black;
+    z-index: 1;
+    background-color: #fcfcfc;
+}
+
+.user-info-list.show {
+    display: flex;
+}
+
+.user-info-list div {
+    cursor: pointer;
+}
+
+.user-basic-info {
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+    font-size: 20px;
+    align-items: center;
 }
