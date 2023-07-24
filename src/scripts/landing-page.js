@@ -3,7 +3,7 @@ let user_data = {
   name: "hassan",
   email: "hassan@gmail.com",
   role: "teacher",
-  image: "/assets/images/profile.jpg",
+  image: "../../assets/images/profile.jpg",
 };
 localStorage.setItem("user", JSON.stringify(user_data));
 const user = JSON.parse(localStorage.getItem("user"));
