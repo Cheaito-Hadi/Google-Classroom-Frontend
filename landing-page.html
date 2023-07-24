@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/landing-page.css">
+    <title>Landing Page</title>
+</head>
+
+<body>
+    <div class="side-bar">
+        <div class="user-side-bar">
+            <div class="profile-pic"></div>
+            <div class="user-info">
+                <div class="user-name">name</div>
+                <div class="user-email">email</div>
+            </div>
+        </div>
+        
+        <div class="classes-list">Classes</div>
+    </div>
+    <div class="join-create-list">
+        <div class="create-class">Create Class</div>
+        <div class="join-class">Join Class</div>
+    </div>
+    <div class="navbar-container">
+        <div class="left-side-nav nav-items">
+            <svg width="50px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                class="show-side-bar">
+                <path d="M4 18L20 18" stroke="#000000" stroke-width="2" stroke-linecap="round" />
+                <path d="M4 12L20 12" stroke="#000000" stroke-width="2" stroke-linecap="round" />
+                <path d="M4 6L20 6" stroke="#000000" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            <div class="classroom-logo"><img src="assets/images/google-logo.png" class="google-logo" alt="google" srcset="">
+                Classroom</div>
+        </div>
+        <div class="right-side-nav nav-items">
+            <div class="class-info-btn">+</div>
+            <div class="profile-pic"></div>
+        </div>
+    </div>
+    <div class="user-info-list">
+        <div class="user-basic-info">
+            <div class="profile-pic"></div>
+            <div class="user-info">
+                <div class="user-name"></div>
+                <div class="user-email"></div>
+            </div>
+        </div>
+        <div class="edit-profile">Edit Profile</div>
+        <div class="sign-out">Sign out</div>
+    </div>
+    <div class="card-container"></div>
+    <div class="create-class-model">
+        <h3>Create class</h3>
+        <div class="name-info info">
+            <label for="class-name" class="label">NAME</label>
+            <input type="text" name="name" class="input" id="class-name-input" placeholder="NAME">
+        </div>
+        <div class="section-info info">
+            <label for="class-section" class="label">SECTION</label>
+            <input type="text" name="section" class="input" id="class-section-input" placeholder="SECTION">
+        </div>
+        <div class="subject-info info">
+            <label for="class-subject" class="label">SUBJECT</label>
+            <input type="text" name="subject" class="input" id="class-subject-input" placeholder="SUBJECT">
+        </div>
+        <div class="room-info info">
+            <label for="class-room" class="label">ROOM</label>
+            <input type="text" name="room" class="input" id="class-room-input" placeholder="ROOM">
+        </div>
+        <div class="btns">
+            <div class="cancel">Cancel</div>
+            <div class="create">Create</div>
+        </div>
+    </div>
+    <div class="join-class-model">
+        <h3>Join class</h3>
+        <label for="course">Select a Course:</label>
+        <select id="course" name="course">
+        </select>
+        <div class="btns">
+            <div class="cancel-join">Cancel</div>
+            <div class="join">Join</div>
+        </div>
+    </div>
+    <script src="script/landing-page.js"></script>
+</body>
+
+</html>
