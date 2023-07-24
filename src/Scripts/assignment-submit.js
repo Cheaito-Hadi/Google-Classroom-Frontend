@@ -11,6 +11,9 @@ const assignment_post_date = document.getElementById("start-date")
 const state =document.getElementById("state")
 const btn_add =document.getElementById("btn-add")
 const pop = document.getElementById("pop-up-click")
+const link =document.getElementById("link")
+const submit_pop = document.getElementById("submit-pop-up")
+const cancel =document.getElementById("btn-cancel")
 pages.getAssignmentInfo = async () => {
     try{
         const response = await fetch(pages.assignment_url)
@@ -60,6 +63,12 @@ document.addEventListener('click',function(event){
     if (target !== pop && !pop.contains(target) && target !== btn_add) {
         pop.style.display = 'none';
     }
+})
+link.addEventListener('click',function(){
+    submit_pop.style.display="flex"
+})
+cancel.addEventListener('click',function(){
+    submit_pop.style.display="none"
 })
 
 

@@ -69,7 +69,7 @@
                 <span class=" VfPpkd-StrnGf-rymPhb-f7MjDc KCA0Vd"><svg focusable="false" width="24" height="24" viewBox="0 0 24 24" class="zAg7wc xSP5ic NMm5M"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></span>
                 <span>Link</span>
             </div>
-            <div class="list-item flex">
+            <div class="list-item flex" id="link">
                 <span class=" VfPpkd-StrnGf-rymPhb-f7MjDc KCA0Vd"><svg focusable="false" width="24" height="24" viewBox="0 0 24 24" class="zAg7wc xSP5ic NMm5M"><path d="M15.5 6v10.5c0 2.21-1.79 4-4 4s-4-1.79-4-4V6a2.5 2.5 0 0 1 5 0v9.5c0 .55-.45 1-1 1s-1-.45-1-1V6H9v9.5a2.5 2.5 0 0 0 5 0V6c0-2.21-1.79-4-4-4S6 3.79 6 6v10.5c0 3.04 2.46 5.5 5.5 5.5s5.5-2.46 5.5-5.5V6h-1.5z"></path></svg></span>
                 <span>File</span>
             </div>
@@ -86,6 +86,33 @@
             </div>
             <div class="list-item flex">
                 Drawings
+            </div>
+        </div>
+    </div>
+    <div class="submit-files" id="submit-pop-up">
+        <div class="pop-up-submit">
+            <div class="upper-part flex">
+                <div class="drive-header flex">
+                    <div class="drive-title flex">
+                        <svg width="26" height="26" viewBox="0 0 94 94" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="94" height="94" fill="none"></rect><path d="M10.7219 73.2906L14.4917 79.8021C15.275 81.1729 16.401 82.25 17.7229 83.0333L31.1865 59.7292H4.25937C4.25937 61.2469 4.65104 62.7646 5.43437 64.1354L10.7219 73.2906Z" fill="#0066DA"></path><path d="M47 32.3125L33.5365 9.00833C32.2146 9.79166 31.0885 10.8687 30.3052 12.2396L5.43437 55.3229C4.65104 56.6938 4.25937 58.2115 4.25937 59.7292H31.1865L47 32.3125Z" fill="#00AC47"></path><path d="M47 32.3125L60.4635 9.00833C59.1416 8.22499 57.6239 7.83333 56.0573 7.83333H37.9427C36.376 7.83333 34.8583 8.27395 33.5364 9.00833L47 32.3125Z" fill="#00832D"></path><path d="M62.8135 59.7292H31.1864L17.7229 83.0333C19.0448 83.8167 20.5625 84.2083 22.1292 84.2083H71.8708C73.4375 84.2083 74.9552 83.7677 76.2771 83.0333L62.8135 59.7292Z" fill="#2684FC"></path><path d="M76.2771 83.0333C77.599 82.25 78.725 81.1729 79.5083 79.8021L81.075 77.1094L88.5656 64.1354C89.3489 62.7646 89.7406 61.2469 89.7406 59.7292H62.8625L76.2771 83.0333Z" fill="#EA4335"></path><path d="M76.1302 33.7813L63.6948 12.2396C62.9115 10.8687 61.7854 9.79166 60.4635 9.00833L47 32.3125L62.8135 59.7292H89.6917C89.6917 58.2115 89.3 56.6938 88.5167 55.3229L76.1302 33.7813Z" fill="#FFBA00"></path></svg>
+                        <h2>Insert files using Google Drive</h2>
+                    </div>
+                    <div class="cancel" id="btn-cancel"><svg width="24px" height="24px" viewBox="0 0 24 24" focusable="false" fill="black"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></div>
+                </div>
+                <div class="navbar flex">
+                    <div>Recent</div>
+                    <div class="upload">Upload</div>
+                    <div>My Drive</div>
+                    <div>Starred</div>
+                    <div>Shared with me</div>
+                </div>
+            </div>
+            <div class="down-part flex">
+                <div class="upload-container flex">
+                    <img src="https://ssl.gstatic.com/docs/picker/images/upload_background.png" alt="cloud">
+                    <button class="browse-btn">Browse</button>
+                    <div class="drag">Or drag a file here</div>
+                </div>
             </div>
         </div>
     </div>
