@@ -9,6 +9,8 @@ const assignment_instructions =document.getElementById("instructions")
 const assignment_due_date = document.getElementById("due-date")
 const assignment_post_date = document.getElementById("start-date")
 const state =document.getElementById("state")
+const btn_add =document.getElementById("btn-add")
+const pop = document.getElementById("pop-up-click")
 pages.getAssignmentInfo = async () => {
     try{
         const response = await fetch(pages.assignment_url)
@@ -50,7 +52,15 @@ pages.getTurnedIn = async () => {
         console.log("Error :" +e)
     }
 }
-
+btn_add.addEventListener('click',function(){
+    pop.style.display='flex'
+})
+document.addEventListener('click',function(event){
+    const target = event.target;
+    if (target !== pop && !pop.contains(target) && target !== btn_add) {
+        pop.style.display = 'none';
+    }
+})
 
 
 

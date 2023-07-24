@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="src/styles/index.css">
+    <link rel="stylesheet" href="src/Styles/index.css">
     <title>Google Classroom</title>
 </head>
 <body>
@@ -45,7 +45,7 @@
                         <span id="state" class="assignment-state"></span>
                     </div>
                     <div class="card-up-work flex">
-                        <div class="btn add">+ Add or create</div>
+                        <div class="btn add" id="btn-add">+ Add or create</div>
                         <div class="btn done">Mark as done</div>
                     </div>
                 </div>
@@ -59,7 +59,37 @@
             </div>
         </div>
     </div>
-    <script src="src/scripts/script.js"></script>
+    <div class="pop-up container" id="pop-up-click">
+        <div class="list flex">
+            <div class="list-item flex">
+                <svg enable-background="new 0 0 24 24" focusable="false" height="24" viewBox="0 0 24 24" width="24" class="zAg7wc xSP5ic NMm5M"><rect fill="none" height="24" width="24"></rect><path d="M14.35,2.5h-4.7c-0.71,0-1.37,0.38-1.73,0.99L1.58,14.4c-0.36,0.62-0.36,1.38-0.01,2l2.35,4.09c0.36,0.62,1.02,1,1.73,1 h12.68c0.72,0,1.38-0.38,1.73-1l2.35-4.09c0.36-0.62,0.35-1.38-0.01-2L16.08,3.49C15.72,2.88,15.06,2.5,14.35,2.5z M18.34,19.5H5.66 l-2.35-4.09L9.65,4.5h4.7l6.34,10.91L18.34,19.5z M12.9,7.75h-1.8l-4.58,7.98L7.25,17h9.5l0.73-1.27L12.9,7.75z M9.25,15L12,10.2 l2.75,4.8H9.25z"></path></svg>
+                <span>Google Drive</span>
+            </div>
+            <div class="list-item flex">
+                <span class=" VfPpkd-StrnGf-rymPhb-f7MjDc KCA0Vd"><svg focusable="false" width="24" height="24" viewBox="0 0 24 24" class="zAg7wc xSP5ic NMm5M"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"></path></svg></span>
+                <span>Link</span>
+            </div>
+            <div class="list-item flex">
+                <span class=" VfPpkd-StrnGf-rymPhb-f7MjDc KCA0Vd"><svg focusable="false" width="24" height="24" viewBox="0 0 24 24" class="zAg7wc xSP5ic NMm5M"><path d="M15.5 6v10.5c0 2.21-1.79 4-4 4s-4-1.79-4-4V6a2.5 2.5 0 0 1 5 0v9.5c0 .55-.45 1-1 1s-1-.45-1-1V6H9v9.5a2.5 2.5 0 0 0 5 0V6c0-2.21-1.79-4-4-4S6 3.79 6 6v10.5c0 3.04 2.46 5.5 5.5 5.5s5.5-2.46 5.5-5.5V6h-1.5z"></path></svg></span>
+                <span>File</span>
+            </div>
+            <hr class="pop-up-hr">
+            <div class="list-item flex"><h3>Create new</h3></div>
+            <div class="list-item flex">
+                <span>Docs</span>
+            </div>
+            <div class="list-item flex">
+                <span>Slides</span>
+            </div>
+            <div class="list-item flex">
+                <span>Sheets</span>
+            </div>
+            <div class="list-item flex">
+                Drawings
+            </div>
+        </div>
+    </div>
+    <script src="src/Scripts/assignment-submit.js"></script>
     <script>
         pages.getAssignmentInfo()
         pages.getTurnedIn()
