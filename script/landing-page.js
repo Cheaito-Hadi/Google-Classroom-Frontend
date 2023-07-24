@@ -1,15 +1,15 @@
 let user_data = {
   id: 13,
+  name: "hassan",
+  email: "hassan@gmail.com",
   role: "teacher",
   image: "/assets/images/profile.jpg",
 };
 localStorage.setItem("user", JSON.stringify(user_data));
-// localStorage.setItem("classes", JSON.stringify(classes_data));
-
 const user = JSON.parse(localStorage.getItem("user"));
-const classes = JSON.parse(localStorage.getItem("classes"));
 
 document.addEventListener("DOMContentLoaded", async function () {
+  // fetch all classes
   try {
     const response = await fetch(
       "http://localhost/Google-Classroom-Backend/students/get-classes.php"
@@ -21,13 +21,22 @@ document.addEventListener("DOMContentLoaded", async function () {
     console.error(error);
   }
   const classes = JSON.parse(localStorage.getItem("classes"));
-
+  const user = JSON.parse(localStorage.getItem("user"));
+  // if there no classes , empty page
+  if (classes.length == 0) {
+  }
+  // add user profile pic - navbar and sidebar
   let profile_pic = document.querySelectorAll(".profile-pic");
   profile_pic.forEach((ele) => {
     console.log(ele);
     ele.style.backgroundImage = `url(${user.image})`;
   });
+  const user_name_sideBar = (document.querySelector(".user-name").innerHTML =
+    user.name);
+  const user_email_sideBar = (document.querySelector(".user-email").innerHTML =
+    user.email);
 
+  // display classes in card
   function displayClasses(title, section, subject, image) {
     return `<div class="top-side-card">
                 <div class="card-title">${title}</div>
@@ -52,6 +61,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     });
   });
 
+  // diplay classes in sidebar
   function sidebarClasses(title, section, image) {
     return `<img src=${image} class="sidebar-class-image"  alt="" srcset="">
             <div class="class-info">
@@ -72,24 +82,28 @@ document.addEventListener("DOMContentLoaded", async function () {
   });
 });
 
+//show and hide sidebar
 const show_sidebar = document.querySelector(".show-side-bar");
 const sidebar = document.querySelector(".side-bar");
 show_sidebar.addEventListener("click", () => {
   sidebar.classList.toggle("show");
 });
 
+// + list (create,join)
 const class_info_btn = document.querySelector(".class-info-btn");
 const join_create_list = document.querySelector(".join-create-list");
 class_info_btn.addEventListener("click", () => {
   join_create_list.classList.toggle("show");
 });
 
+// show and hide create class model
 const create_class = document.querySelector(".create-class");
 const class_model = document.querySelector(".create-class-model");
 create_class.addEventListener("click", () => {
   class_model.classList.toggle("show");
 });
 
+// style create class model
 const inputFields = document.querySelectorAll(".input");
 const miniLabels = document.querySelectorAll(".label");
 
@@ -113,8 +127,8 @@ document.querySelector(".cancel").addEventListener("click", () => {
   class_model.classList.remove("show");
 });
 
+// update classroom db
 document.querySelector(".create").addEventListener("click", createClass);
-
 async function createClass() {
   let name_input = document.getElementById("class-name-input").value;
   let section_input = document.getElementById("class-section-input").value;
@@ -145,6 +159,7 @@ async function createClass() {
   }
 }
 
+// join class model
 const join_class_btn = document.querySelector(".join-class");
 const join_class_model = document.querySelector(".join-class-model");
 join_class_btn.addEventListener("click", () => {
@@ -155,6 +170,43 @@ document.querySelector(".cancel-join").addEventListener("click", () => {
   join_class_model.classList.remove("show");
 });
 
+const join_model = document.querySelector("#course");
+JSON.parse(localStorage.getItem("classes")).forEach((ele) => {
+  const option_class = document.createElement("option");
+  option_class.innerHTML = ele.class_name;
+  option_class.value = ele.id_classroom;
+  join_model.appendChild(option_class);
+});
+
+// update student db
+const join_btn = document.querySelector(".join");
+join_btn.addEventListener("click", async function () {
+  const selectedOption = join_model.value;
+  //   let user_data = JSON.parse(localStorage.getItem("user"));
+  //   user_data.classes_id.push(selectedOption);
+  //   localStorage.setItem("user", JSON.stringify(user_data));
+  const joined_class = new FormData();
+  joined_class.append("user_id", user_data.id);
+  joined_class.append("id_classRoom", selectedOption);
+  try {
+    const response = await fetch(
+      "http://localhost/Google-Classroom-Backend/students/joined_class.php",
+      {
+        method: "POST",
+        body: joined_class,
+      }
+    );
+    console.log(response);
+    const res = await response.json();
+    console.log(res);
+    // localStorage.setItem("student", JSON.stringify(res.student));
+    // localStorage.setItem("teacher-info", JSON.stringify(res.teacher));
+  } catch (error) {
+    console.error(error);
+  }
+});
+
+// show and hide when you click outside the container
 document.addEventListener("click", function (event) {
   if (!sidebar.contains(event.target) && event.target !== show_sidebar) {
     sidebar.classList.remove("show");
@@ -174,22 +226,4 @@ document.addEventListener("click", function (event) {
   ) {
     join_class_model.classList.remove("show");
   }
-});
-
-const join_model = document.querySelector("#course");
-classes.forEach((ele) => {
-  const option_class = document.createElement("option");
-  option_class.innerHTML = ele.class_name;
-  option_class.value = ele.id_classroom;
-  join_model.appendChild(option_class);
-});
-
-const join_btn = document.querySelector(".join");
-join_btn.addEventListener("click", function () {
-  const selectedOption = join_model.value;
-  let user_data = JSON.parse(localStorage.getItem("user"));
-  user_data.classes_id = selectedOption;
-  localStorage.setItem("user", JSON.stringify(user_data));
-
-  console.log("Selected Option:", selectedOption);
 });
