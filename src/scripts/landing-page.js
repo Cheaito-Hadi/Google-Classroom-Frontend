@@ -3,7 +3,7 @@ let user_data = {
   name: "hassan",
   email: "hassan@gmail.com",
   role: "teacher",
-  image: "../../assets/images/profile.jpg",
+  image: "/assets/images/profile.jpg",
 };
 localStorage.setItem("user", JSON.stringify(user_data));
 const user = JSON.parse(localStorage.getItem("user"));
@@ -92,7 +92,11 @@ const sidebar = document.querySelector(".side-bar");
 show_sidebar.addEventListener("click", () => {
   sidebar.classList.toggle("show");
 });
-
+document.addEventListener("click", (event) => {
+  if (!sidebar.contains(event.target) && event.target !== show_sidebar) {
+    sidebar.classList.remove("show");
+  }
+});
 // + list (create,join)
 const class_info_btn = document.querySelector(".class-info-btn");
 const join_create_list = document.querySelector(".join-create-list");
