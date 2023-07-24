@@ -16,13 +16,35 @@ const displayTitles = async () => {
       const pathElement = document.createElementNS("http://www.w3.org/2000/svg", "path");
       pathElement.setAttribute("d", "M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 18H6V4h2v8l2.5-1.5L13 12V4h5v16z");
       svgElement.appendChild(pathElement);
+      svgElement.classList.add("mysvg");
       divElement.appendChild(svgElement);
       const titleElement = document.createElement("span");
       titleElement.textContent = `posted a new assignment: ${title}`;
       divElement.appendChild(titleElement);
-      divElement.classList.add("title-box")
+      divElement.classList.add("title-box");
       titlesContainer.appendChild(divElement);
     });
   } catch(error) {console.log(error)};
 };
 displayTitles();
+
+const announcements = document.getElementById("announce");
+
+announcements.addEventListener("click",async() =>{
+  const teacher_id = document.getElementById("ins-id").value;
+  const announce_title = document.getElementById("announce-title").value;
+  const announce_text = document.getElementById("announce-text").value;
+
+  try {
+    const data = new FormData();
+    data.append("teacher_id",teacher_id);
+    data.append("title",announce_title);
+    data.append("annoucement",announce_text);
+    const response = await fetch("http://localhost:8080/announce.php", {
+      method: "POST",
+      body: data
+      })
+  } catch(error) {
+    console.log(error);
+  }
+})
