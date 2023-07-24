@@ -1,12 +1,11 @@
 const displayTitles = async () => {
   try {
-    const response = await fetch("http://localhost:8080/stream.php");
+    const response = await fetch("http://localhost:8080/announcements/stream.php");
     const data = await response.json();
     const assignment_title = data.titles;
   const titlesContainer = document.getElementById("titles-container");
 
     assignment_title.forEach(title => {
-      console.log(title);
       const divElement = document.createElement("div");
       const svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgElement.setAttribute("focusable", "false");
@@ -26,25 +25,4 @@ const displayTitles = async () => {
     });
   } catch(error) {console.log(error)};
 };
-displayTitles();
 
-const announcements = document.getElementById("announce");
-
-announcements.addEventListener("click",async() =>{
-  const teacher_id = document.getElementById("ins-id").value;
-  const announce_title = document.getElementById("announce-title").value;
-  const announce_text = document.getElementById("announce-text").value;
-
-  try {
-    const data = new FormData();
-    data.append("teacher_id",teacher_id);
-    data.append("title",announce_title);
-    data.append("annoucement",announce_text);
-    const response = await fetch("http://localhost:8080/announce.php", {
-      method: "POST",
-      body: data
-      })
-  } catch(error) {
-    console.log(error);
-  }
-})
