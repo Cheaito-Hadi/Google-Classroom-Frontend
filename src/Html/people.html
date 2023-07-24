@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/index.css">
+    <title>Google classroom</title>
+</head>
+<body>
+    <div class="main flex">
+        <div class="main-container">
+            <div class="teachers">
+                <div class="header">
+                    <div><h2 class="header-title">Teachers</h2></div>
+                </div>
+                <div id="teacher-body">
+                    
+                </div>
+            </div>
+            <div class="students">
+                <div class="header">
+                    <div class="header-line flex">
+                        <h2 class="header-title">Classmates</h2>
+                        <span class="student-number"><p id="number-of-students"></p></span>
+                    </div>
+                </div>
+                <div id="student-body">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../scripts/people-enrollment.js"></script>
+    <script>
+        pages.getStudent()
+        pages.getTeacher()
+        pages.getNumber()
+    </script> 
+</body>
+</html>
