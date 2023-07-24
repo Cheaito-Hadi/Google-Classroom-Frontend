@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/styles/edit-profile.css">
+    <title>User Profile</title>
+</head>
+
+<body>
+    <div class="navbar-container">
+        <div class="left-side-nav nav-items">
+            <svg width="50px" height="50px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" class="go-back">
+                <path fill="#000000" d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z" />
+                <path fill="#000000"
+                    d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z" />
+            </svg>
+            <div class="classroom-logo"><img src="../assets/images/google-logo.png" class="google-logo" alt="google"
+                    srcset="">
+                Classroom</div>
+        </div>
+        <div class="right-side-nav nav-items">
+            <div class="profile-pic"></div>
+        </div>
+    </div>
+    <div class="user-info-list">
+        <div class="user-basic-info">
+            <div class="profile-pic"></div>
+            <div class="user-info">
+                <div class="user-name"></div>
+                <div class="user-email"></div>
+            </div>
+        </div>
+        <div class="sign-out">Sign out</div>
+    </div>
+    <div class="container">
+        <h1>Edit Profile</h1>
+        <div style="display: flex; align-items: center; gap: 30px;">
+            <label for="profle-image" class="circle">upload image</label>
+            <input type="file" id="profile-image" name="profle-image">
+        </div>
+        <label for="first-name" class="label ">First name</label>
+        <input type="text" id="first-name" class="input" name="first-name" placeholder="First name">
+
+        <label for="last" class="label">Last name</label>
+        <input type="text" id="last-name" class="input" name="last-name" placeholder="Last name">
+
+        <label for="email" class="label">Email</label>
+        <input type="email" id="email" class="input" name="email" placeholder="Email">
+
+        <label for="password" class="label">Password</label>
+        <input type="password" id="password" class="input" name="password" placeholder="Password">
+        <button class="update">Update Profile</button>
+    </div>
+    <script src="/src/scripts/edit-profile.js"></script>
+</body>
+
+</html>

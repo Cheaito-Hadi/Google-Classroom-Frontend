@@ -97,7 +97,6 @@ document.addEventListener("click", (event) => {
     sidebar.classList.remove("show");
   }
 });
-
 // + list (create,join)
 const class_info_btn = document.querySelector(".class-info-btn");
 const join_create_list = document.querySelector(".join-create-list");
