@@ -40,3 +40,34 @@ inputFields.forEach((inputField, index) => {
     }
   });
 });
+const update_btn = document.querySelector(".update");
+const upload_image = document.getElementById("profile-image");
+console.log(upload_image);
+
+update_btn.addEventListener("click", async () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+  const file = upload_image.files[0];
+  const user_id = user.id;
+  console.log(file);
+  console.log(user_id);
+  let data = new FormData();
+  data.append("profile_image", file);
+  data.append("user_id", user_id);
+
+  try {
+    const response = await fetch(
+      "http://localhost/Google-Classroom-Backend/upload-images.php",
+      {
+        method: "POST",
+        body: data,
+      }
+    );
+    console.log(response);
+    const res = await response.json();
+    console.log(res.image_path);
+    user.image = `http://localhost/Google-Classroom-Backend/${res.image_path}`;
+    localStorage.setItem("user", JSON.stringify(user));
+  } catch (error) {
+    console.error(error);
+  }
+});
