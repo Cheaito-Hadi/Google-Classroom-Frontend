@@ -1,0 +1,122 @@
+body{
+    font-family: "Roboto",Helvetica,Arial,sans-serif;
+    color: rgba(0,0,0,.87);
+}
+.flex{
+    display: flex;
+}
+.container{
+    justify-content: center;
+    align-items: center;
+}
+.main{
+    width: 70%;
+    justify-content: center;
+}
+.logo{
+    margin-top: 2.5%;
+    justify-content: center;
+    width: 3%;
+}
+.card{
+    width: 23%;
+    height: 300px;
+    margin-left: 3%;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-top: 2.5%;
+}
+.card-container{
+    width: 100%;
+    padding: 7%;
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,.3), 0 2px 6px 2px rgba(60,64,67,.15);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.up{
+    height: 150px;
+}
+.down{
+    height: 50px;
+    align-items: center;
+}
+.instructions{
+    flex-direction: column;
+    align-items: flex-start;
+    width: 75%;
+    margin-left: 1%;
+}
+.instructions-header{
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.header-title{
+    width: 100%;
+    background-color: black;
+    border-bottom: 2px;
+}
+.card-up-header{
+    justify-content: space-between;
+    align-items: baseline;
+}
+.card-up-work{
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: space-between;
+    height: 50%;
+}
+.ur-work{
+    font-family: "Google Sans",Roboto,Arial,sans-serif;
+    font-size: 1.375rem;
+    font-weight: 400;
+    line-height: 1.75rem;
+    color: #3c4043;
+}
+.btn{
+    border-radius: 5px;
+    padding: 2%;
+    text-align: center;
+}
+.add{
+    color: black;
+    border: 0.5px solid gray;
+}
+.done{
+    background-color: black;
+    color: white;
+}
+.header-title{
+    width: 100%;
+    background-color: black;
+    height:  1px;
+}
+.private-comment{
+    align-items: center;
+    justify-content: space-around;
+    width: 80%;
+}
+.add-comment{
+    width: 70%;
+}
+.bottom{
+    width: 100%;
+    height:  1px;
+    background-color: gray;
+}
+.class-comment{
+    align-items: center;
+    justify-content: space-between;
+    height: 30px;
+    width: 20%;
+}
+.grade{
+    width: 100%;
+    justify-content: space-between;
+}
+.assignment-state{
+    color: green;
+}
