@@ -1,10 +1,10 @@
-body{
+body {
     color: #202124;
-    font-family: roboto,"Noto Sans Myanmar UI",arial,sans-serif;
+    font-family: roboto, "Noto Sans Myanmar UI", arial, sans-serif;
     line-height: 1.4286;
 }
 
-.container{
+.container {
     width: 400px;
     margin: 0 auto;
 }
@@ -18,28 +18,31 @@ body{
     border-radius: 10px;
 }
 
-.signin-form{
+.signin-form {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#signin{
-    font-family: "Google Sans","Noto Sans Myanmar UI",arial,sans-serif;
+#signin {
+    font-family: "Google Sans", "Noto Sans Myanmar UI", arial, sans-serif;
     font-weight: 400;
     line-height: 1.3333;
     font-size: 24px;
 }
-#info{
+
+#info {
     padding-bottom: 20px;
 }
-.form-email{
+
+.form-email {
     display: flex;
     flex-direction: column;
     align-items: start;
     padding-bottom: 40px;
 }
-.input-email{
+
+.input-email {
     border: 1px solid #ccc;
     border-radius: 4px;
     color: #202124;
@@ -51,23 +54,25 @@ body{
     width: 300px;
 }
 
-button{
+button {
     border-radius: 4px;
     color: #1a73e8;
     font-weight: 550;
     letter-spacing: .25px;
     background-color: transparent;
     border: 0;
-    font-family: "Google Sans",Roboto,Arial,sans-serif;
+    font-family: "Google Sans", Roboto, Arial, sans-serif;
     font-size: .875rem;
 }
-.create-account{
+
+.create-account {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding-bottom: 50px;
 }
-.next{
+
+.next {
     color: #fff;
     font-weight: 550;
     letter-spacing: .25px;
@@ -75,8 +80,14 @@ button{
     border: 0;
     margin: 1px 1px 0 1px;
     padding: 13px 15px;
-    font-family: "Google Sans",Roboto,Arial,sans-serif;
+    font-family: "Google Sans", Roboto, Arial, sans-serif;
     font-size: .875rem;
     width: 80px;
 }
 
+#logo {
+    width: 75px;
+    height: 24px;
+    padding-top: 20px;
+    padding-bottom: -20px;
+}
