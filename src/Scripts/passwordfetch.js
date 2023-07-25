@@ -30,7 +30,6 @@ recovery.addEventListener("click", async (e) => {
         newPasswordInput.setAttribute("placeholder", "Enter new password");
 
         const submitButton = document.createElement("button");
-        submitButton.setAttribute("type", "submit");
         submitButton.textContent = "Submit";
 
         dataContainer.appendChild(formElement);
