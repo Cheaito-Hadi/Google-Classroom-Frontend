@@ -40,6 +40,25 @@ document.addEventListener("DOMContentLoaded", async function () {
     ele.innerHTML = user.email;
   });
 
+  
+  // display general classroom card
+  function displayGeneralClass() {
+    return `<div class="top-side-card">
+                <div class="card-title">Class name</div>
+                <div class="card-section">section</div>
+            </div>
+            <img src="/assets/images/profile.jpg" alt="" srcset="">`;
+  }
+
+  const class_container = document.querySelector(".card-container");
+
+  // Check if there are no classes
+  if (classes.length === 0) {
+    const card = document.createElement("div");
+    card.classList.add("card");
+    card.innerHTML = displayGeneralClass();
+    class_container.appendChild(card);
+  } else {
   // display classes in card
   function displayClasses(title, section, subject, image) {
     return `<div class="top-side-card">
@@ -64,7 +83,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       window.location.href = `stream.html?id=${ele.id_classroom}`;
     });
   });
-
+  }
   // diplay classes in sidebar
   function sidebarClasses(title, section, image) {
     return `<img src=${image} class="sidebar-class-image"  alt="" srcset="">
