@@ -16,7 +16,6 @@ body {
     height: 64px;
     border-style: none none solid none;
     border-color: #616368;
-    padding-left: 20px;
 }
 
 .nav-1 {
@@ -165,4 +164,121 @@ body {
     justify-content: center;
     align-items: center;
     gap: 10px;
+}
+.profile-pic {
+    background-size: cover;
+    background-position: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+@media (max-width: 497px) {
+    .nav-3-wrap {
+        display: none;
+    }
+
+    .section-name {
+        display: none;
+    }
+
+    .class-name {
+        display: none;
+    }
+
+    .svgs {
+        display: none;
+    }
+}
+
+
+.side-bar {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 8px;
+    z-index: 1;
+    background-color: white;
+    height: 100%;
+    width: 20rem;
+    border-right: 1px solid rgb(199, 187, 187);
+
+}
+
+.side-bar.show {
+    display: block;
+}
+
+.user-side-bar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    padding: 10px;
+}
+
+@media (min-width:497px) {
+    .user-side-bar {
+        display: none;
+    }
+}
+
+.classes-list {
+    letter-spacing: .01785714em;
+    font-family: "Google Sans", Roboto, Arial, sans-serif;
+    font-size: 0.875rem;
+    font-weight: 600;
+    line-height: 1.25rem;
+    color: #3c4043;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    flex-direction: column;
+    border-bottom: 1px solid rgb(199, 187, 187);
+}
+
+.classes-list .class {
+    margin-bottom: 10px;
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.sidebar-class-image {
+    background-size: cover;
+    background-position: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.user-info-list {
+    display: none;
+    gap: 20px;
+    flex-direction: column;
+    position: absolute;
+    right: 20px;
+    top: 60px;
+    padding: 20px;
+    border: 1px solid black;
+    z-index: 1;
+    background-color: #fcfcfc;
+}
+
+.user-info-list.show {
+    display: flex;
+}
+
+.user-info-list div {
+    cursor: pointer;
+}
+
+.user-basic-info {
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+    font-size: 20px;
+    align-items: center;
 }
