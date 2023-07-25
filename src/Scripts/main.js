@@ -9,5 +9,15 @@ const displayAllTitles = async () => {
 
 document.addEventListener("DOMContentLoaded", displayAllTitles);
 
-const postButton = document.getElementById("announce"); 
+const postButton = document.getElementById("announce");
 postButton.addEventListener("click", displayAllTitles);
+
+document
+  .querySelector(".classwork-navigation")
+  .addEventListener("click", () => {
+    window.location.href = "/src/pages/classwork.html";
+  });
+
+document.querySelector(".people-navigation").addEventListener("click", () => {
+  window.location.href = "/src/pages/people.html";
+});

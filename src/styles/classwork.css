@@ -2,19 +2,17 @@
     font-family: "Google Sans", Roboto, Arial, sans-serif;
 }
 
-body{
-    margin:0;
+body {
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     font-family: "Google Sans", Roboto, Arial, sans-serif;
-    font-size: 22px;
-    color: #7e8186;
 }
 
 .navbar {
     display: flex;
-    justify-content: space-between; 
-    align-items: center; 
+    justify-content: space-between;
+        align-items: center;
     height: 64px;
     border-style: none none solid none;
     border-color: #616368;
@@ -23,30 +21,31 @@ body{
 
 .nav-1 {
     display: flex;
-    align-items: center; 
-    margin-right: 16px; 
+    align-items: center;
+        margin-right: 16px;
 }
 
-.nav-1-wrap{
+.nav-1-wrap {
     display: flex;
     flex-direction: column;
 }
 
-.hamburger{
+.hamburger {
     fill: #7e8186;
-    padding:0px 24px 0px 0px;
+    padding: 0px 24px 0px 0px;
 }
 
-.class-name{
-    font-size: 1.5rem;
+.class-name {
+    font-size: 1rem;
     font-weight: 500;
-    
+
 }
 
-.section-name{
-    font-size: 1.1rem;
-    font-weight: 400;
+.section-name {
+    font-size: 0.7rem;
+    font-weight: lighter;
     line-height: 1rem;
+    color: #7e8186;
 }
 
 .nav-2 {
@@ -56,38 +55,38 @@ body{
     height: 100%;
 }
 
-.nav-2-wrap{
-    display:flex;
+.nav-2-wrap {
+    display: flex;
 }
 
-.navigation{
+.navigation {
     padding: 0px 24px;
     cursor: pointer;
     height: 100%;
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.nav-2-wrap :hover{
-    background-color:#d3d3d3
+.nav-2-wrap :hover {
+    background-color: #d3d3d3
 }
 
 .nav-3 {
-    margin-left: 16px; 
+    margin-left: 16px;
     display: flex;
     gap: 1px;
 
 }
 
-.nav-3-wrap{
+.nav-3-wrap {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     gap: 20px;
 }
 
-.circle-border{
+.circle-border {
     border-radius: 100%;
     border: #ebedef 1px solid;
     width: 48px;
@@ -97,6 +96,14 @@ body{
     align-items: center;
 }
 
+.classwork-container {
+    align-self: center;
+    max-height: 98vh;
+    height: 100%;
+    width: 50%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
 .classwork-container{
     align-self: center;
     max-height: 98vh;

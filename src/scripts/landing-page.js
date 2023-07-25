@@ -5,6 +5,7 @@ let user_data = {
   role: "teacher",
   image: "/assets/images/profile.jpg",
 };
+
 localStorage.setItem("user", JSON.stringify(user_data));
 const user = JSON.parse(localStorage.getItem("user"));
 
@@ -59,7 +60,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     );
     class_container.appendChild(card);
     card.addEventListener("click", () => {
-      window.location.href = `stream.html?id=${ele.id_classroom}`;
+      window.location.href = `/src/pages/classroom.html?id=${ele.id_classroom}`;
     });
   });
 
@@ -81,6 +82,9 @@ document.addEventListener("DOMContentLoaded", async function () {
       ele.image
     );
     classes_sidebar.appendChild(sidebar_class);
+    sidebar_class.addEventListener("click", () => {
+      window.location.href = `/src/pages/classroom.html?id=${ele.id_classroom}`;
+    });
   });
 });
 
@@ -242,5 +246,10 @@ document.addEventListener("click", function (event) {
   if (!user_info_list.contains(event.target) && event.target !== user_info) {
     user_info_list.classList.remove("show");
   }
+});
+
+document.querySelector(".sign-out").addEventListener("click", () => {
+  localStorage.clear();
+  window.location.href = "/index.html";
 });
 

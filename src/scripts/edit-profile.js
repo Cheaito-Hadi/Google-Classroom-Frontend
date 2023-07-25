@@ -104,10 +104,10 @@ update_btn.addEventListener("click", async () => {
 });
 
 document.querySelector(".go-back").addEventListener("click", () => {
-  window.location.href = "landing-page.html";
+  window.location.href = "/src/pages/landing-page.html";
 });
 
 document.querySelector(".sign-out").addEventListener("click", () => {
   localStorage.clear();
-  window.location.href = "sigin-page.html";
+  window.location.href = "/src/pages/sigin-page.html";
 });
