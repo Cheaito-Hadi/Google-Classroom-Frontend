@@ -116,11 +116,12 @@
     height: 100%;
     width: 20rem;
     border-right: 1px solid rgb(199, 187, 187);
-
+    
 }
 
 .side-bar.show {
     display: block;
+
 }
 
 .user-side-bar {
@@ -143,12 +144,45 @@
     font-weight: 600;
     line-height: 1.25rem;
     color: #3c4043;
-    display: flex;
-    justify-content: center;
     padding-top: 20px;
-    padding-bottom: 50px;
+    padding-bottom: 30px;
+    display: flex;
     flex-direction: column;
+    gap: 20px;
+}
+
+.class-calendar{
+    width: 20rem;
+    padding-bottom: 40px;
     border-bottom: 1px solid rgb(199, 187, 187);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    
+}
+.review{
+    width: 20rem;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgb(199, 187, 187);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.icon{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.archive-setting{
+    width: 20rem;
+    padding-bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
 }
 
 .classes-list .class {
@@ -175,9 +209,12 @@
     right: 100px;
     top: 50px;
     padding: 20px;
-    border: 1px solid black;
+    border: 1px solid #fcfcfc;
+    box-shadow: 2px 2px 2px 2px grey;
     z-index: 1;
     background-color: #fcfcfc;
+    border-radius: 4px;
+    font-family: "Google Sans",Roboto,Arial,sans-serif;
 }
 
 .join-create-list.show {
@@ -308,3 +345,13 @@ input:focus {
     font-size: 20px;
     align-items: center;
 }
+
+.show-side-bar:hover {
+    background-color: rgb(202, 198, 198);
+    border-radius: 20%;
+}
+
+.class-info-btn:hover {
+    background-color: rgb(202, 198, 198);
+    border-radius: 20%;
+  }

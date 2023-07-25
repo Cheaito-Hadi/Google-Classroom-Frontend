@@ -10,8 +10,6 @@ const displayTitles = async () => {
     });
     const data = await response.json();
     const assignments = data.assignments;
-    // localStorage.setItem("assignments", JSON.stringify(assignments));
-    // const class_assignments = JSON.parse(localStorage.getItem("user"));
     const titlesContainer = document.getElementById("titles-container");
 
     assignments.forEach((data) => {
