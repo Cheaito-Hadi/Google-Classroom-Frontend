@@ -209,10 +209,12 @@
     right: 100px;
     top: 50px;
     padding: 20px;
-    border: 1px solid black;
+    border: 1px solid #fcfcfc;
+    box-shadow: 2px 2px 2px 2px grey;
     z-index: 1;
     background-color: #fcfcfc;
     border-radius: 4px;
+    font-family: "Google Sans",Roboto,Arial,sans-serif;
 }
 
 .join-create-list.show {
