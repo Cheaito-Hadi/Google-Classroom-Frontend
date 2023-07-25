@@ -5,14 +5,14 @@
 //   role: "teacher",
 //   image: "/assets/images/profile.jpg",
 // };
-
 // localStorage.setItem("user", JSON.stringify(user_data));
 const user = JSON.parse(localStorage.getItem("user"));
 
 document.addEventListener("DOMContentLoaded", async function () {
+ 
   try {
     const response = await fetch(
-      "http://localhost/Google-Classroom-Backend/get-classes.php"
+      "http://localhost/Google-Classroom-Backend/students/get-classes.php"
     );
     const res = await response.json();
     console.log(res);
@@ -38,6 +38,25 @@ document.addEventListener("DOMContentLoaded", async function () {
     ele.innerHTML = user.email;
   });
 
+  
+  // display general classroom card
+  function displayGeneralClass() {
+    return `<div class="top-side-card">
+                <div class="card-title">Class name</div>
+                <div class="card-section">section</div>
+            </div>
+            <img src="/assets/images/profile.jpg" alt="" srcset="">`;
+  }
+
+  const class_container = document.querySelector(".card-container");
+
+  // Check if there are no classes
+  if (classes.length === 0) {
+    const card = document.createElement("div");
+    card.classList.add("card");
+    card.innerHTML = displayGeneralClass();
+    class_container.appendChild(card);
+  } else {
   // display classes in card
   function displayClasses(title, section, subject, image) {
     return `<div class="top-side-card">
@@ -59,10 +78,10 @@ document.addEventListener("DOMContentLoaded", async function () {
     );
     class_container.appendChild(card);
     card.addEventListener("click", () => {
-      window.location.href = `/src/pages/classroom.html?id=${ele.id_classroom}`;
+      window.location.href = `stream.html?id=${ele.id_classroom}`;
     });
   });
-
+  }
   // diplay classes in sidebar
   function sidebarClasses(title, section, image) {
     return `<img src=${image} class="sidebar-class-image"  alt="" srcset="">
@@ -98,6 +117,7 @@ document.addEventListener("click", (event) => {
     sidebar.classList.remove("show");
   }
 });
+
 // + list (create,join)
 const class_info_btn = document.querySelector(".class-info-btn");
 const join_create_list = document.querySelector(".join-create-list");
@@ -153,7 +173,7 @@ async function createClass() {
 
   try {
     const response = await fetch(
-      "http://localhost/Google-Classroom-Backend/create_class_room.php",
+      "http://localhost/Google-Classroom-Backend/teachers/create_class_room.php",
       {
         method: "POST",
         body: data,
@@ -161,7 +181,8 @@ async function createClass() {
     );
     const res = await response.json();
     localStorage.setItem("classes", JSON.stringify(res.classes));
-    localStorage.setItem("teacher", JSON.stringify(res.teacher));
+    localStorage.setItem("teacher-info", JSON.stringify(res.teacher));
+    window.location.reload();
   } catch (error) {
     console.error(error);
   }
@@ -195,7 +216,7 @@ join_btn.addEventListener("click", async function () {
   joined_class.append("id_classRoom", selectedOption);
   try {
     const response = await fetch(
-      "http://localhost/Google-Classroom-Backend/joined_class.php",
+      "http://localhost/Google-Classroom-Backend/students/joined_class.php",
       {
         method: "POST",
         body: joined_class,
@@ -203,7 +224,9 @@ join_btn.addEventListener("click", async function () {
     );
     console.log(response);
     const res = await response.json();
+    console.log(res);
     localStorage.setItem("student", JSON.stringify(res.student));
+    window.location.reload();
   } catch (error) {
     console.error(error);
   }
