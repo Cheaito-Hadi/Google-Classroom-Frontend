@@ -51,13 +51,11 @@ next.addEventListener("click", async () => {
         const result = await response.json();
 
         if (result.status === "next step") {
-            //classroom page navigation
-            console.log("welcome")
-        }
-        else {
-            console.log("Wrong password");
+            window.location.href = "/src/pages/landing-page.html";
+        }else {
+            document.querySelector(".wrong-password").innerHTML="Wrong password";
         }
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 })

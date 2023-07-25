@@ -23,10 +23,20 @@ register = () => {
             redirect: 'follow'
         };
 
-        fetch("http://localhost/Google-Classroom-Backend/register.php", requestOptions)
-            .then(response => response.json())
-            .then(data => console.log(data))
-            .catch(error => console.log(error));
+        fetch(
+          "http://localhost/Google-Classroom-Backend/register.php",
+          requestOptions
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.status == "success") {
+              window.location.href = "/index.html";
+            } else {
+              document.querySelector(".already-exist").innerHTML =
+                "email is already exist";
+            }
+          })
+          .catch((error) => console.log(error));
 
 
     })
