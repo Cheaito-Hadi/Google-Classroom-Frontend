@@ -32,30 +32,34 @@ next.addEventListener("click", async () => {
 })
     const login = document.getElementById("login")
     login.addEventListener("click", async () => {
+      const password = document.getElementById("password").value;
+      const user_email = JSON.parse(localStorage.getItem("email"));
+      console.log(user_email);
 
-    const password = document.getElementById("password").value;
-    const user_email = JSON.parse(localStorage.getItem("email"));
-    console.log(user_email)
+      const data = new FormData();
 
-    const data = new FormData();
-
-    data.append("email", user_email)
-    data.append("password", password)
-    try {
-
-        const response = await fetch("http://localhost/Google-Classroom-Backend/password.php", {
+      data.append("email", user_email);
+      data.append("password", password);
+      try {
+        const response = await fetch(
+          "http://localhost/Google-Classroom-Backend/password.php",
+          {
             method: "POST",
-            body: data
-        });
+            body: data,
+          }
+        );
 
         const result = await response.json();
 
         if (result.status === "next step") {
-            window.location.href = "/src/pages/landing-page.html";
-        }else {
-            document.querySelector(".wrong-password").innerHTML="Wrong password";
+          window.location.href = "/src/pages/landing-page.html";
+          localStorage.setItem("user", JSON.stringify(result.user));
+        } else {
+          document.querySelector(".wrong-password").innerHTML =
+            "Wrong password";
         }
-    } catch (error) {
+      } catch (error) {
         console.error(error);
-    }
-})
+      }
+    });
+    // const user = JSON.parse(localStorage.getItem("user"));

@@ -97,7 +97,23 @@ update_btn.addEventListener("click", async () => {
         body: user_data,
       }
     );
-    const user_res = await user_response.json();
+    const user_isUptaded = await user_response.json();
+  } catch (error) {
+    console.error(error);
+  }
+  const user_email = new FormData();
+  user_email.append("email", email);
+
+  try {
+    const user_info_response = await fetch(
+      "http://localhost/Google-Classroom-Backend/get_userInput.php",
+      {
+        method: "POST",
+        body: user_email,
+      }
+    );
+    const user_info = await user_info_response.json();
+    localStorage.setItem("user", JSON.stringify(user_info));
   } catch (error) {
     console.error(error);
   }

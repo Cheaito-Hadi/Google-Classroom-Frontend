@@ -1,12 +1,12 @@
-let user_data = {
-  id: 13,
-  name: "hassan",
-  email: "hassan@gmail.com",
-  role: "teacher",
-  image: "/assets/images/profile.jpg",
-};
+// let user_data = {
+//   id: 13,
+//   name: "hassan",
+//   email: "hassan@gmail.com",
+//   role: "teacher",
+//   image: "/assets/images/profile.jpg",
+// };
 
-localStorage.setItem("user", JSON.stringify(user_data));
+// localStorage.setItem("user", JSON.stringify(user_data));
 const user = JSON.parse(localStorage.getItem("user"));
 
 document.addEventListener("DOMContentLoaded", async function () {
@@ -22,11 +22,8 @@ document.addEventListener("DOMContentLoaded", async function () {
   }
   const classes = JSON.parse(localStorage.getItem("classes"));
   const user = JSON.parse(localStorage.getItem("user"));
-<<<<<<< HEAD
 
   // add user profile pic - navbar and sidebar
-=======
->>>>>>> 5a94f2b7cc435435e75ff468d5b3c54eff5b68d1
   let profile_pic = document.querySelectorAll(".profile-pic");
   profile_pic.forEach((ele) => {
     console.log(ele);
@@ -253,4 +250,3 @@ document.querySelector(".sign-out").addEventListener("click", () => {
   localStorage.clear();
   window.location.href = "/index.html";
 });
-

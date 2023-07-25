@@ -47,3 +47,9 @@ document.querySelector(".people-navigation").addEventListener("click", () => {
 document.querySelector(".stream-navigation").addEventListener("click", () => {
   window.location.href = "/src/pages/classroom.html";
 });
+
+document
+  .querySelector(".create-assignment-btn")
+  .addEventListener("click", () => {
+    window.location.href = "/src/pages/assignment.html";
+  });

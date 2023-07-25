@@ -47,3 +47,7 @@ function addAssignment() {
 
 }
 addAssignment();
+
+document.querySelector(".exit").addEventListener("click", () => {
+  window.location.href = "/src/pages/classwork.html";
+});
