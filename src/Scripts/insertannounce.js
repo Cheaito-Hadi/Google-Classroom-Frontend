@@ -14,7 +14,7 @@ announcements.addEventListener("click", async (e) => {
   try {
     const data = new FormData();
     data.append("teacher_id", user.id);
-    data.append("title", announce_title);
+    // data.append("title", announce_title);
     data.append("announcement", announce_text);
     data.append("files", files);
     data.append("classroom_id", classroom_id);
