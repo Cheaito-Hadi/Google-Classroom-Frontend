@@ -161,7 +161,7 @@ async function createClass() {
     );
     const res = await response.json();
     localStorage.setItem("classes", JSON.stringify(res.classes));
-    localStorage.setItem("teacher-info", JSON.stringify(res.teacher));
+    localStorage.setItem("teacher", JSON.stringify(res.teacher));
   } catch (error) {
     console.error(error);
   }
@@ -203,9 +203,7 @@ join_btn.addEventListener("click", async function () {
     );
     console.log(response);
     const res = await response.json();
-    console.log(res);
     localStorage.setItem("student", JSON.stringify(res.student));
-    const user = JSON.parse(localStorage.getItem("user"));
   } catch (error) {
     console.error(error);
   }
