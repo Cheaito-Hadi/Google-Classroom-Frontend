@@ -10,7 +10,7 @@ try {
   data.append("email",recovery_email);
   data.append("answer",recovery_answer);
   console.log(data);
-  const response = await fetch("http://localhost:8080/forgot.php", {
+  const response = await fetch("http://localhost/Google-Classroom-Backend/forgot.php", {
       method: "POST",
       body: data
       })
