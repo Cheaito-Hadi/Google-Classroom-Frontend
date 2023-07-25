@@ -15,6 +15,7 @@ const link =document.getElementById("link")
 const submit_pop = document.getElementById("submit-pop-up")
 const cancel =document.getElementById("btn-cancel")
 const work_uploaded =document.getElementById("work_uploaded")
+const mark_as_done = document.getElementById("mark-as-done")
 pages.getAssignmentInfo = async () => {
     try{
         const response = await fetch(pages.assignment_url)
@@ -50,6 +51,9 @@ pages.getTurnedIn = async () => {
         else{
             state.style.color="black"
             state.innerText ="Turned in"
+            btn_add.style.display="none"
+            work_uploaded.style.display="block"
+            mark_as_done.style.display= 'none'
         }
     }
     catch(e){
@@ -80,10 +84,11 @@ document.getElementById("upload_btn").addEventListener("click", function () {
     handleFileSelect();
   });
 
+const student_id = 2; // Replace this with student_id from local storage
+const assignment_id = 2; // Replace this with  assignment_id from local storage
   function handleFileSelect() {
     const fileInput = document.getElementById("fileToUpload");
-    const student_id = 2; // Replace this with student_id from local storage
-    const assignment_id = 2; // Replace this with  assignment_id from local storage
+    
   
     const formData = new FormData();
     formData.append("fileToUpload", fileInput.files[0]);
@@ -112,6 +117,34 @@ document.getElementById("upload_btn").addEventListener("click", function () {
         console.error("Error:", error);
       });
   }
+
+mark_as_done.addEventListener('click',function(){
+    const formData = new FormData();
+    formData.append("student_id", student_id);
+    formData.append("assignment_id", assignment_id);
+
+    fetch("http://localhost/Google-Classroom-Backend/turn_assignment_in.php", {
+      method: "POST",
+      body: formData,
+    })
+      .then(function (response) {
+        if (!response.ok) {
+          console.log("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then(function (data) {
+        if(data.message === "Turned in"){
+            mark_as_done.style.display= 'none'
+            state.style.color="black"
+            state.innerText ="Turned in"
+        }
+        
+      })
+      .catch(function (error) {
+        console.error("Error:", error);
+      });
+})
 
 
 
