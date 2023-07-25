@@ -46,7 +46,7 @@ try {
             updateData.append("answer", recovery_answer);
             updateData.append("new_password", new_password);
 
-            const updateResponse = await fetch("http://localhost:8080/forgot.php", {
+            const updateResponse = await fetch("http://localhost/Google-Classroom-Backend/forgot.php", {
               method: "POST",
               body: updateData,
             });
