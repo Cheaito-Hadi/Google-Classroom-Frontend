@@ -14,6 +14,7 @@ const pop = document.getElementById("pop-up-click")
 const link =document.getElementById("link")
 const submit_pop = document.getElementById("submit-pop-up")
 const cancel =document.getElementById("btn-cancel")
+const work_uploaded =document.getElementById("work_uploaded")
 pages.getAssignmentInfo = async () => {
     try{
         const response = await fetch(pages.assignment_url)
@@ -71,5 +72,52 @@ cancel.addEventListener('click',function(){
     submit_pop.style.display="none"
 })
 
+document.getElementById("upload_btn").addEventListener("click", function () {
+    document.getElementById("fileToUpload").click();
+  });
+  
+  document.getElementById("fileToUpload").addEventListener("change", function () {
+    handleFileSelect();
+  });
+
+  function handleFileSelect() {
+    const fileInput = document.getElementById("fileToUpload");
+    const student_id = 2; // Replace this with student_id from local storage
+    const assignment_id = 2; // Replace this with  assignment_id from local storage
+  
+    const formData = new FormData();
+    formData.append("fileToUpload", fileInput.files[0]);
+    formData.append("student_id", student_id);
+    formData.append("assignment_id", assignment_id);
+  
+    fetch("http://localhost/Google-Classroom-Backend/assignment_uploads.php", {
+      method: "POST",
+      body: formData,
+    })
+      .then(function (response) {
+        if (!response.ok) {
+          console.log("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then(function (data) {
+        if(data.message === "File uploaded and data inserted successfully."){
+            submit_pop.style.display="none"
+            btn_add.style.display="none"
+            work_uploaded.style.display="block"
+        }
+        
+      })
+      .catch(function (error) {
+        console.error("Error:", error);
+      });
+  }
 
 
+
+
+
+ 
+  
+
+  

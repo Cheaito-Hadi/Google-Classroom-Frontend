@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Styles/index.css">
+    <link rel="stylesheet" href="../Styles/assignment_submit.css">
     <title>Google Classroom</title>
 </head>
 <body>
@@ -45,6 +45,7 @@
                         <span id="state" class="assignment-state"></span>
                     </div>
                     <div class="card-up-work flex">
+                        <div class="btn add uploaded-work" id="work_uploaded">Your Work Uploaded</div>
                         <div class="btn add" id="btn-add">+ Add or create</div>
                         <div class="btn done">Mark as done</div>
                     </div>
@@ -110,12 +111,14 @@
             <div class="down-part flex">
                 <div class="upload-container flex">
                     <img src="https://ssl.gstatic.com/docs/picker/images/upload_background.png" alt="cloud">
-                    <button class="browse-btn">Browse</button>
+                    <button class="browse-btn" id="upload_btn">Browse</button>
+                    <input type="file" name="fileToUpload" id="fileToUpload" class="input_uploads">
                     <div class="drag">Or drag a file here</div>
                 </div>
             </div>
         </div>
     </div>
+    
     <script src="../Scripts/assignment-submit.js"></script>
     <script>
         pages.getAssignmentInfo()

@@ -226,3 +226,9 @@ img{
 .drag{
     margin-top: 1%;
 }
+.input_uploads{
+    display: none;
+}
+.uploaded-work{
+    display: none;
+}
