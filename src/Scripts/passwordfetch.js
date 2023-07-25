@@ -18,7 +18,6 @@ recovery.addEventListener("click", async (e) => {
     if (response.ok) {
       const responseData = await response.json();
 
-      if (responseData.length > 0) {
         const password = responseData[0].password;
         const dataContainer = document.getElementById("data-container");
         dataContainer.innerHTML = '';
@@ -26,7 +25,6 @@ recovery.addEventListener("click", async (e) => {
 
         const newPasswordInput = document.createElement("input");
         newPasswordInput.setAttribute("type", "password");
-        newPasswordInput.classList.add("recovered-password");
         newPasswordInput.setAttribute("placeholder", "Enter new password");
 
         const submitButton = document.createElement("button");
@@ -65,13 +63,8 @@ recovery.addEventListener("click", async (e) => {
             console.log(error);
           }
         });
-      } else {
-        console.log("Sorry, recovery failed");
       }
-    } else {
-      console.log("Failed to retrieve user data for recovery.");
+    } catch(error) {
+      console.log(error);
     }
-  } catch (error) {
-    console.log(error);
-  }
-});
+  })
