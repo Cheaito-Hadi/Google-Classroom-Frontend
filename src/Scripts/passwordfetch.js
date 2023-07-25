@@ -36,7 +36,7 @@ recovery.addEventListener("click", async (e) => {
         formElement.appendChild(newPasswordInput);
         formElement.appendChild(submitButton);
 
-        formElement.addEventListener("submit", async (e) => {
+        submitButton.addEventListener("click", async (e) => {
           e.preventDefault();
           const new_password = newPasswordInput.value;
 
