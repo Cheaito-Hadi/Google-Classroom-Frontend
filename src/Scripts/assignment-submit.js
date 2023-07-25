@@ -1,6 +1,6 @@
 const pages = {}
 
-pages.assignment_url ="http://localhost/Google-Classroom-Backend/assignments.php"
+pages.assignment_url ="http://localhost/Google-Classroom-Backend/assignments_data.php"
 pages.turnedin_url ="http://localhost/Google-Classroom-Backend/turned_in.php"
 
 
