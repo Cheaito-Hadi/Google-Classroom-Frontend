@@ -3,7 +3,7 @@ const pages = {}
 pages.assignment_url ="http://localhost/Google-Classroom-Backend/assignments_data.php"
 pages.turnedin_url ="http://localhost/Google-Classroom-Backend/turned_in.php"
 
-
+//Hi it is a small edit, dont forget to delete that
 
 const teacher_names = document.getElementsByClassName("teacher-name")
 const assignment_title = document.getElementById("assignment-title")
