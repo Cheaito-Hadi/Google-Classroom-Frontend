@@ -120,7 +120,7 @@ update_btn.addEventListener("click", async () => {
 });
 
 document.querySelector(".go-back").addEventListener("click", () => {
-  window.location.href = "/src/pages/landing-page.html";
+  window.history.back();
 });
 
 document.querySelector(".sign-out").addEventListener("click", () => {

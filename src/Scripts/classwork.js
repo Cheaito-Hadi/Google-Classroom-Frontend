@@ -6,18 +6,18 @@ function viewAssignment(arr_assign) {
   assign_list.innerHTML = "";
 
   const topics_set = new Set();
-  for (let i = 0; i < arr_assign.length; i++) {
-    topics.add(arr_assign[i].topic);
+  for (let i = 0; i < 2; i++) {
+    topics_set.add(arr_assign[i].topic);
   }
 
   const topics = [...topics_set];
-
   topics.forEach((item) => {
+    let assign_ul = document.createElement("ul")
+    assign_ul.innerHTML= `${item}`
     arr_assign.forEach((assignment) => {
       if (assignment.topic == item) {
         let assign_li = document.createElement("li");
         assign_li.innerHTML = `
-        <div class='topic'>${item}</div>
             <div class="title-li" id="li-title"><svg focusable="false" width="24" height="24"
                         viewBox="0 0 24 24" class=" NMm5M hhikbc svg-blue">
                         <path d="M7 15h7v2H7zm0-4h10v2H7zm0-4h10v2H7z"></path>
@@ -26,10 +26,11 @@ function viewAssignment(arr_assign) {
                         </path>
                     </svg><span>${assignment.title}</span></div>
                     <div class="due-date">Due: ${assignment.due_date}</div>`;
-        assign_list.appendChild(assign_li);
+        assign_ul.appendChild(assign_li);
         assign_li.classList.add("assign-li");
       }
     });
+    assign_list.appendChild(assign_ul)
   });
 }
 
@@ -46,6 +47,7 @@ async function fetchAssignment() {
     );
     const json = await response.json();
     const assignments = json.assignments;
+    console.log(assignments)
     viewAssignment(assignments);
   } catch (e) {
     console.log(e);

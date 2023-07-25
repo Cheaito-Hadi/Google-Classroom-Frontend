@@ -5,12 +5,12 @@ recovery.addEventListener("click", async (e) => {
   const recovery_email = document.getElementById("recovery-email").value;
   const recovery_answer = document.getElementById("question").value;
 
-  try {
-    const data = new FormData();
-    data.append("email", recovery_email);
-    data.append("answer", recovery_answer);
-    console.log(data);
-    const response = await fetch("http://localhost:8080/forgot.php", {
+try {
+  const data = new FormData();
+  data.append("email",recovery_email);
+  data.append("answer",recovery_answer);
+  console.log(data);
+  const response = await fetch("http://localhost/Google-Classroom-Backend/forgot.php", {
       method: "POST",
       body: data,
     });
@@ -46,7 +46,7 @@ recovery.addEventListener("click", async (e) => {
             updateData.append("answer", recovery_answer);
             updateData.append("new_password", new_password);
 
-            const updateResponse = await fetch("http://localhost:8080/forgot.php", {
+            const updateResponse = await fetch("http://localhost/Google-Classroom-Backend/forgot.php", {
               method: "POST",
               body: updateData,
             });
