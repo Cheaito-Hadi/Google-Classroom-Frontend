@@ -160,7 +160,6 @@ async function createClass() {
       }
     );
     const res = await response.json();
-    console.log(res);
     localStorage.setItem("classes", JSON.stringify(res.classes));
     localStorage.setItem("teacher-info", JSON.stringify(res.teacher));
   } catch (error) {
