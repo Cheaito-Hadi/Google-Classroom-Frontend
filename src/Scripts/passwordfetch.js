@@ -3,10 +3,12 @@ const recovery = document.getElementById("recovery");
 recovery.addEventListener("click", async(e) => {
   e.preventDefault();
   const recovery_email  = document.getElementById("recovery-email").value;
+  const recovery_answer = document.getElementById("question").value;
 
 try {
   const data = new FormData();
   data.append("email",recovery_email);
+  data.append("answer",recovery_answer);
   console.log(data);
   const response = await fetch("http://localhost:8080/forgot.php", {
       method: "POST",
