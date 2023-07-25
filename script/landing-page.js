@@ -123,6 +123,11 @@ const join_create_list = document.querySelector(".join-create-list");
 class_info_btn.addEventListener("click", () => {
   join_create_list.classList.toggle("show");
 });
+document.addEventListener("click", (event) => {
+  if (!join_create_list.contains(event.target) && event.target !== class_info_btn) {
+    join_create_list.classList.remove("show");
+  }
+});
 
 // show and hide create class model
 const create_class = document.querySelector(".create-class");
