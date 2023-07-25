@@ -3,19 +3,13 @@ const pages = {}
 pages.assignment_url ="http://localhost/Google-Classroom-Backend/assignments.php"
 pages.turnedin_url ="http://localhost/Google-Classroom-Backend/turned_in.php"
 
+
+
 const teacher_names = document.getElementsByClassName("teacher-name")
 const assignment_title = document.getElementById("assignment-title")
 const assignment_instructions =document.getElementById("instructions")
 const assignment_due_date = document.getElementById("due-date")
 const assignment_post_date = document.getElementById("start-date")
-const state =document.getElementById("state")
-const btn_add =document.getElementById("btn-add")
-const pop = document.getElementById("pop-up-click")
-const link =document.getElementById("link")
-const submit_pop = document.getElementById("submit-pop-up")
-const cancel =document.getElementById("btn-cancel")
-const work_uploaded =document.getElementById("work_uploaded")
-const mark_as_done = document.getElementById("mark-as-done")
 pages.getAssignmentInfo = async () => {
     try{
         const response = await fetch(pages.assignment_url)
@@ -41,6 +35,13 @@ pages.getAssignmentInfo = async () => {
         console.log("Error : "+e)
     }
 }
+
+
+const state =document.getElementById("state")
+const btn_add =document.getElementById("btn-add")
+const work_uploaded =document.getElementById("work_uploaded")
+const mark_as_done = document.getElementById("mark-as-done")
+
 pages.getTurnedIn = async () => {
     try{
         const response = await fetch(pages.turnedin_url)
@@ -60,18 +61,26 @@ pages.getTurnedIn = async () => {
         console.log("Error :" +e)
     }
 }
+
+const pop = document.getElementById("pop-up-click")
 btn_add.addEventListener('click',function(){
     pop.style.display='flex'
 })
+
 document.addEventListener('click',function(event){
     const target = event.target;
     if (target !== pop && !pop.contains(target) && target !== btn_add) {
         pop.style.display = 'none';
     }
 })
+
+const link =document.getElementById("link")
+const submit_pop = document.getElementById("submit-pop-up")
 link.addEventListener('click',function(){
     submit_pop.style.display="flex"
 })
+
+const cancel =document.getElementById("btn-cancel")
 cancel.addEventListener('click',function(){
     submit_pop.style.display="none"
 })
