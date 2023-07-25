@@ -3,7 +3,7 @@ const get_announcements = document.getElementById("announce");
 
 get_announcements.addEventListener("click", async (e) => {
   try {
-    const response = await fetch("http://localhost:8080/announcements/displayannounce.php");
+    const response = await fetch("http://localhost:8080/displayannounce.php");
     const data = await response.json();
     const announcement_titles = data.titles;
     console.log(data.titles);

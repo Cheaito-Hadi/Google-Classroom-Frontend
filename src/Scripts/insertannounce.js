@@ -15,7 +15,7 @@ announcements.addEventListener("click",async(e) =>{
     data.append("announcement",announce_text);
     data.append("files",files);
     data.append("classroom_id",classroom_id);
-    const response = await fetch("http://localhost:8080/announcements/announce.php", {
+    const response = await fetch("http://localhost:8080/Google-Classroom-Backend/announce.php", {
       method: "POST",
       body: data
       })

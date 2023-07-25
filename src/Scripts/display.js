@@ -1,6 +1,6 @@
 const displayTitles = async () => {
   try {
-    const response = await fetch("http://localhost:8080/announcements/stream.php");
+    const response = await fetch("http://localhost:8080/stream.php");
     const data = await response.json();
     const assignment_title = data.titles;
   const titlesContainer = document.getElementById("titles-container");
