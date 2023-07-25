@@ -14,7 +14,6 @@ recovery.addEventListener("click", async (e) => {
       method: "POST",
       body: data,
     });
-    console.log(response);
     if (response.ok) {
       const responseData = await response.json();
 
