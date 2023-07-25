@@ -187,6 +187,7 @@ async function createClass() {
     console.log(res);
     localStorage.setItem("classes", JSON.stringify(res.classes));
     localStorage.setItem("teacher-info", JSON.stringify(res.teacher));
+    window.location.reload();
   } catch (error) {
     console.error(error);
   }
@@ -230,6 +231,7 @@ join_btn.addEventListener("click", async function () {
     const res = await response.json();
     console.log(res);
     localStorage.setItem("student", JSON.stringify(res.student));
+    window.location.reload();
   } catch (error) {
     console.error(error);
   }
