@@ -1,17 +1,20 @@
+const urlParams = new URLSearchParams(window.location.search);
+const classroom_id = urlParams.get("id");
 const displayTitles = async () => {
+  const data = new FormData();
+  data.append("classroom_id", classroom_id);
   try {
-<<<<<<< HEAD
-    const response = await fetch(
-      "http://localhost:8080/announcements/stream.php"
-    );
-=======
-    const response = await fetch("http://localhost:8080/stream.php");
->>>>>>> 5a94f2b7cc435435e75ff468d5b3c54eff5b68d1
+    const response = await fetch("http://localhost:8080/stream.php", {
+      method: "POST",
+      body: data,
+    });
     const data = await response.json();
-    const assignment_title = data.titles;
+    const assignments = data.assignments;
+    // localStorage.setItem("assignments", JSON.stringify(assignments));
+    // const class_assignments = JSON.parse(localStorage.getItem("user"));
     const titlesContainer = document.getElementById("titles-container");
 
-    assignment_title.forEach((title) => {
+    assignments.forEach((data) => {
       const divElement = document.createElement("div");
       const svgElement = document.createElementNS(
         "http://www.w3.org/2000/svg",
@@ -33,10 +36,13 @@ const displayTitles = async () => {
       svgElement.classList.add("mysvg");
       divElement.appendChild(svgElement);
       const titleElement = document.createElement("span");
-      titleElement.textContent = `posted a new assignment: ${title}`;
+      titleElement.textContent = `posted a new assignment: ${data.title}`;
       divElement.appendChild(titleElement);
       divElement.classList.add("title-box");
       titlesContainer.appendChild(divElement);
+      divElement.addEventListener("click", () => {
+        window.location.href = `/src/pages/assignment.html?classroom_id=${classroom_id}&assignment_id=${data.id}`;
+      });
     });
   } catch (error) {
     console.log(error);

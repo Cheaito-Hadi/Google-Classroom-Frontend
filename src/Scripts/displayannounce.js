@@ -1,30 +1,32 @@
 const display_announcements = async () => {
   const get_announcements = document.getElementById("announce");
 
-<<<<<<< HEAD
+  const urlParams = new URLSearchParams(window.location.search);
+  const classroom_id = urlParams.get("id");
+  const user = JSON.parse(localStorage.getItem("user"));
+
   get_announcements.addEventListener("click", async (e) => {
+    const data = new FormData();
+    data.append("classroom_id", classroom_id);
+
     try {
       const response = await fetch(
-        "http://localhost:8080/announcements/displayannounce.php"
+        "http://localhost:8080/displayannounce.php",
+        {
+          method: "POST",
+          body: data,
+        }
       );
       const data = await response.json();
-      const announcement_titles = data.titles;
-      console.log(data.titles);
+      const announcements = data.anoncments;
+      localStorage.setItem("student", JSON.stringify(announcements));
+      const class_anoncments = JSON.parse(localStorage.getItem("user"));
       const announce_container = document.getElementById("titles-container");
-=======
-get_announcements.addEventListener("click", async (e) => {
-  try {
-    const response = await fetch("http://localhost:8080/displayannounce.php");
-    const data = await response.json();
-    const announcement_titles = data.titles;
-    console.log(data.titles);
-    const announce_container = document.getElementById("titles-container");
->>>>>>> 5a94f2b7cc435435e75ff468d5b3c54eff5b68d1
 
       announce_container.innerHTML = "";
-
-      announcement_titles.forEach((title) => {
-        if (title.trim() !== "") {
+      // const url = `/src/pages/assignment.html?classroom_id=${classroom_id}&student_id=${student_id}`;
+      announcements.forEach((data) => {
+        if (data.content.trim() !== "") {
           const divElement = document.createElement("div");
           const svgElement = document.createElementNS(
             "http://www.w3.org/2000/svg",
@@ -46,10 +48,13 @@ get_announcements.addEventListener("click", async (e) => {
           svgElement.classList.add("mysvg");
           divElement.appendChild(svgElement);
           const titleElement = document.createElement("span");
-          titleElement.textContent = `posted a new announcement: ${title}`;
+          titleElement.textContent = `posted a new announcement: ${data.content}`;
           divElement.appendChild(titleElement);
           divElement.classList.add("title-box");
           announce_container.appendChild(divElement);
+          divElement.addEventListener("click", () => {
+            window.location.href = `/src/pages/assignment.html?classroom_id=${classroom_id}&announcment_id=${data.id}`;
+          });
         }
       });
     } catch (error) {

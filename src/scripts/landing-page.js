@@ -206,6 +206,7 @@ join_btn.addEventListener("click", async function () {
     const res = await response.json();
     console.log(res);
     localStorage.setItem("student", JSON.stringify(res.student));
+    const user = JSON.parse(localStorage.getItem("user"));
   } catch (error) {
     console.error(error);
   }

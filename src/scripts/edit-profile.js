@@ -113,7 +113,7 @@ update_btn.addEventListener("click", async () => {
       }
     );
     const user_info = await user_info_response.json();
-    localStorage.setItem("user", JSON.stringify(user_info));
+    localStorage.setItem("user", JSON.stringify(user_info.user));
   } catch (error) {
     console.error(error);
   }
