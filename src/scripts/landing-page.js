@@ -1,18 +1,18 @@
-let user_data = {
-  id: 13,
-  name: "hassan",
-  email: "hassan@gmail.com",
-  role: "teacher",
-  image: "/assets/images/profile.jpg",
-};
-localStorage.setItem("user", JSON.stringify(user_data));
+// let user_data = {
+//   id: 13,
+//   name: "hassan",
+//   email: "hassan@gmail.com",
+//   role: "teacher",
+//   image: "/assets/images/profile.jpg",
+// };
+
+// localStorage.setItem("user", JSON.stringify(user_data));
 const user = JSON.parse(localStorage.getItem("user"));
 
 document.addEventListener("DOMContentLoaded", async function () {
-  // fetch all classes
   try {
     const response = await fetch(
-      "http://localhost/Google-Classroom-Backend/students/get-classes.php"
+      "http://localhost/Google-Classroom-Backend/get-classes.php"
     );
     const res = await response.json();
     console.log(res);
@@ -22,9 +22,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   }
   const classes = JSON.parse(localStorage.getItem("classes"));
   const user = JSON.parse(localStorage.getItem("user"));
-  // if there no classes , empty page
-  // if (classes.length == 0) {
-  // }
+
   // add user profile pic - navbar and sidebar
   let profile_pic = document.querySelectorAll(".profile-pic");
   profile_pic.forEach((ele) => {
@@ -80,7 +78,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     );
     class_container.appendChild(card);
     card.addEventListener("click", () => {
-      window.location.href = `stream.html?id=${ele.id_classroom}`;
+      window.location.href = `/src/pages/classroom.html?id=${ele.id_classroom}`;
     });
   });
   }
@@ -102,6 +100,9 @@ document.addEventListener("DOMContentLoaded", async function () {
       ele.image
     );
     classes_sidebar.appendChild(sidebar_class);
+    sidebar_class.addEventListener("click", () => {
+      window.location.href = `/src/pages/classroom.html?id=${ele.id_classroom}`;
+    });
   });
 });
 
@@ -116,7 +117,6 @@ document.addEventListener("click", (event) => {
     sidebar.classList.remove("show");
   }
 });
-
 // + list (create,join)
 const class_info_btn = document.querySelector(".class-info-btn");
 const join_create_list = document.querySelector(".join-create-list");
@@ -177,7 +177,7 @@ async function createClass() {
 
   try {
     const response = await fetch(
-      "http://localhost/Google-Classroom-Backend/teachers/create_class_room.php",
+      "http://localhost/Google-Classroom-Backend/create_class_room.php",
       {
         method: "POST",
         body: data,
@@ -221,7 +221,7 @@ join_btn.addEventListener("click", async function () {
   joined_class.append("id_classRoom", selectedOption);
   try {
     const response = await fetch(
-      "http://localhost/Google-Classroom-Backend/students/joined_class.php",
+      "http://localhost/Google-Classroom-Backend/joined_class.php",
       {
         method: "POST",
         body: joined_class,
@@ -248,7 +248,6 @@ edit_profile.addEventListener("click", () => {
   window.location.href = `edit-profile.html?user_id=${user.id}`;
 });
 
-// show and hide when you click outside the container
 document.addEventListener("click", function (event) {
   if (!sidebar.contains(event.target) && event.target !== show_sidebar) {
     sidebar.classList.remove("show");
@@ -273,3 +272,7 @@ document.addEventListener("click", function (event) {
   }
 });
 
+document.querySelector(".sign-out").addEventListener("click", () => {
+  localStorage.clear();
+  window.location.href = "/index.html";
+});
