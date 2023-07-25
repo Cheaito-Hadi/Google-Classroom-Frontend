@@ -4,10 +4,11 @@ register = () => {
     reg_btn.addEventListener('click', (e) => {
         e.preventDefault()
 
-        let first_name = document.getElementById("first-name").value
-        let last_name = document.getElementById("last-name").value
-        let email = document.getElementById("email").value
-        let password = document.getElementById("password").value
+        let first_name = document.getElementById("first-name").value;
+        let last_name = document.getElementById("last-name").value;
+        let email = document.getElementById("email").value;
+        let password = document.getElementById("password").value;
+        let question = document.getElementById("security").value;
 
 
         let formdata = new FormData();
@@ -16,6 +17,7 @@ register = () => {
         formdata.append("last_name", last_name);
         formdata.append("email", email);
         formdata.append("password", password);
+        formdata.append("question",question);
 
         let requestOptions = {
             method: 'POST',

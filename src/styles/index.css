@@ -22,6 +22,35 @@ body {
     padding: 20px;
     border-radius: 10px;
 }
+.form-recovery{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    width: 500px;
+    height: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#data-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 10px;
+    width: 500px;
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 .signin-form {
     display: flex;
@@ -90,6 +119,21 @@ button {
     font-size: .875rem;
     width: 80px;
 }
+.back-btn{
+    color: #fff;
+    text-align: center;
+    font-weight: 550;
+    letter-spacing: .25px;
+    border-radius: 5px;
+    background-color: #1a73e8;
+    border: 0;
+    margin: 1px 1px 0 1px;
+    padding: 13px 15px;
+    font-family: "Google Sans", Roboto, Arial, sans-serif;
+    font-size: .875rem;
+    width: 50px;
+    height: 25px;
+}
 
 #logo {
     width: 75px;
@@ -115,4 +159,24 @@ button {
     padding: 13px 15px;
     z-index: 1;
     width: 300px;
+}
+
+#forgot-password{
+    border-radius: 4px;
+    color: #1a73e8;
+    font-weight: 550;
+    letter-spacing: .25px;
+    background-color: transparent;
+    border: 0;
+    font-family: "Google Sans", Roboto, Arial, sans-serif;
+    font-size: .875rem;
+}
+.buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+a{
+    text-decoration: none;
 }
