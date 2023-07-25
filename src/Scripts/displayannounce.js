@@ -1,6 +1,7 @@
 const display_announcements = async () => {
   const get_announcements = document.getElementById("announce");
 
+<<<<<<< HEAD
   get_announcements.addEventListener("click", async (e) => {
     try {
       const response = await fetch(
@@ -10,6 +11,15 @@ const display_announcements = async () => {
       const announcement_titles = data.titles;
       console.log(data.titles);
       const announce_container = document.getElementById("titles-container");
+=======
+get_announcements.addEventListener("click", async (e) => {
+  try {
+    const response = await fetch("http://localhost:8080/displayannounce.php");
+    const data = await response.json();
+    const announcement_titles = data.titles;
+    console.log(data.titles);
+    const announce_container = document.getElementById("titles-container");
+>>>>>>> 5a94f2b7cc435435e75ff468d5b3c54eff5b68d1
 
       announce_container.innerHTML = "";
 
