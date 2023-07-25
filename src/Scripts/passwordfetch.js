@@ -24,6 +24,7 @@ if (response.ok) {
     divElement.textContent = `your password is: ${password}`;
     dataContainer.appendChild(divElement);
   }
+  else {console.log("Sorry, recovery failed")}
 }
 } catch(error) {
   console.log(error)
