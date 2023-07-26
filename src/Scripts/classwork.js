@@ -76,8 +76,6 @@ fetchAssignment();
 document.querySelector(".people-navigation").addEventListener("click", () => {
   window.location.href = `/src/pages/people.html?id=${classroom_id}`;
 });
-// const urlParams = new URLSearchParams(window.location.search);
-// const classroom_id = urlParams.get("id");
 
 document.querySelector(".stream-navigation").addEventListener("click", () => {
   window.location.href = `/src/pages/classroom.html?id=${classroom_id}`;

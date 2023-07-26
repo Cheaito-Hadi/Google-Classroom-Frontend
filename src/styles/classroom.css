@@ -119,6 +119,18 @@ body{
     cursor: pointer;
     
 }
+.share-it{
+    fill: white;
+    background-color: #202124;
+    border-radius: 20px;
+    padding: 10px  20px;
+    margin-top:20px ;
+    display: flex;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    
+}
 
 .svg-wrapper{
     display: flex;
@@ -288,13 +300,40 @@ form{
   form button:hover {
     background-color: #404244;
   }
-  .meet{
+  .student-meet{
     border-radius: 15px;
     border : 1px solid #dadce0;
     width: 200px;
     height: 120px;
     gap: 0.2cm;
   }
+  .teacher-meet{
+    border-radius: 15px;
+    border: 1px solid #dadce0;
+    width: 200px;
+    height: 200px;
+    margin-top: 20px;
+  }
+.input {
+    border: none;
+    border-bottom: 1px solid black;
+    height: 40px;
+    transition: border-color 0.3s;
+}
+
+  .create-share-link {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    background-color: #fcfcfc;
+    padding: 70px;
+    border: 1px solid black;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+}
   .form-join{
     display: flex;
     justify-content: center;

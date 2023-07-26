@@ -1,15 +1,6 @@
-// let user_data = {
-//   id: 13,
-//   name: "hassan",
-//   email: "hassan@gmail.com",
-//   role: "teacher",
-//   image: "/assets/images/profile.jpg",
-// };
-// localStorage.setItem("user", JSON.stringify(user_data));
 const user = JSON.parse(localStorage.getItem("user"));
 
 document.addEventListener("DOMContentLoaded", async function () {
- 
   try {
     const response = await fetch(
       "http://localhost/Google-Classroom-Backend/students/get-classes.php"
@@ -38,7 +29,6 @@ document.addEventListener("DOMContentLoaded", async function () {
     ele.innerHTML = user.email;
   });
 
-  
   // display general classroom card
   function displayGeneralClass() {
     return `<div class="top-side-card">
@@ -57,30 +47,30 @@ document.addEventListener("DOMContentLoaded", async function () {
     card.innerHTML = displayGeneralClass();
     class_container.appendChild(card);
   } else {
-  // display classes in card
-  function displayClasses(title, section, subject, image) {
-    return `<div class="top-side-card">
+    // display classes in card
+    function displayClasses(title, section, subject, image) {
+      return `<div class="top-side-card">
                 <div class="card-title">${title}</div>
                 <div class="card-section">${section}</div>
             </div>
             <img src=${image} alt="" srcset="">
             <div class="description">${subject}</div>`;
-  }
-  const class_container = document.querySelector(".card-container");
-  classes.forEach((ele) => {
-    const card = document.createElement("div");
-    card.classList.add("card");
-    card.innerHTML = displayClasses(
-      ele.class_name,
-      ele.section,
-      ele.subject,
-      ele.image
-    );
-    class_container.appendChild(card);
-    card.addEventListener("click", () => {
-      window.location.href = `stream.html?id=${ele.id_classroom}`;
+    }
+    const class_container = document.querySelector(".card-container");
+    classes.forEach((ele) => {
+      const card = document.createElement("div");
+      card.classList.add("card");
+      card.innerHTML = displayClasses(
+        ele.class_name,
+        ele.section,
+        ele.subject,
+        ele.image
+      );
+      class_container.appendChild(card);
+      card.addEventListener("click", () => {
+        window.location.href = `stream.html?id=${ele.id_classroom}`;
+      });
     });
-  });
   }
   // diplay classes in sidebar
   function sidebarClasses(title, section, image) {

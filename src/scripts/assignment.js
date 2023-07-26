@@ -1,12 +1,5 @@
 let arrow2 = document.getElementById("arrow-2");
 
-// classArray = ['tech', 'softskilss', 'uix'] 
-//    const response = await fetch(
-//      "http://localhost/Google-Classroom-Backend/get_classes.php",);
-//    let json = await response.json();
-//    const classes=json.classes;
-//   const urlParams = new URLSearchParams(window.location.search);
-//   const classroom_id = urlParams.get("id");
 
 const classesList = document.getElementById("ul-2");
 

@@ -1,13 +1,75 @@
 const urlParams = new URLSearchParams(window.location.search);
 const classroom_id = urlParams.get("id");
+let is_teacher = false;
+let is_student = false;
+const teacher = JSON.parse(localStorage.getItem("teacher"));
+const student = JSON.parse(localStorage.getItem("student"));
+if (teacher) {
+  for (i = 0; i < teacher.length; i++) {
+    if (teacher[i].classRoom_id == classroom_id) {
+      is_teacher = true;
+    }
+  }
+} else if (student) {
+  for (i = 0; i < student.length; i++) {
+    if (student[i].classRoom_id == classroom_id) {
+      is_student = true;
+    }
+  }
+}
+if (is_student) {
+  document.getElementById("announce-text").style.display = "none";
+  document.querySelector(".btn-share-link").style.display = "none";
+  document.querySelector(".meet").classList.add("student-meet");
+}
+if (is_teacher) {
+  document.querySelector(".meet").classList.add("teacher-meet");
+}
+
+const share_link = document.querySelector(".btn-share-link");
+const add_meet_link = document.querySelector(".create-share-link");
+share_link.addEventListener("click", () => {
+  add_meet_link.style.display = "flex";
+});
+document.addEventListener("click", function (event) {
+  if (!add_meet_link.contains(event.target) && event.target !== share_link) {
+    add_meet_link.style.display = "none";
+  }
+});
+document.querySelector(".share-it").addEventListener("click", async () => {
+  const link = document.getElementById("share-link").value;
+  if (link !== "") {
+    const data = new FormData();
+    data.append("google_link", link);
+    data.append("classroom_id", classroom_id);
+    try {
+      const response = await fetch(
+        "http://localhost/Google-Classroom-Backend/teachers/share_google_meet.php",
+        {
+          method: "POST",
+          body: data,
+        }
+      );
+      const res = await response.json();
+      if (response.status == "success") {
+        add_meet_link.style.display = "none";
+      }
+    } catch (error) {
+      console.error(error);
+    }
+  }
+});
 const displayTitles = async () => {
   const data = new FormData();
   data.append("classroom_id", classroom_id);
   try {
-    const response = await fetch("http://localhost/Google-Classroom-Backend/stream.php", {
-      method: "POST",
-      body: data
-    });
+    const response = await fetch(
+      "http://localhost/Google-Classroom-Backend/stream.php",
+      {
+        method: "POST",
+        body: data,
+      }
+    );
     const json = await response.json();
     const assignments = json.assignment;
     const titlesContainer = document.getElementById("titles-container");
