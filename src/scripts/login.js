@@ -52,7 +52,7 @@ next.addEventListener("click", async () => {
         const result = await response.json();
         console.log(result)
 
-        if (result.status === "logged in") {
+        if (result.status === "logged-in") {
           window.location.href = "/src/pages/landing-page.html";
           localStorage.setItem("user", JSON.stringify(result.user));
         } else {

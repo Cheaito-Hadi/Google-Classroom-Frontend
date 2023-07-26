@@ -4,12 +4,12 @@ const displayTitles = async () => {
   const data = new FormData();
   data.append("classroom_id", classroom_id);
   try {
-    const response = await fetch("http://localhost:8080/stream.php", {
+    const response = await fetch("http://localhost/Google-Classroom-Backend/stream.php", {
       method: "POST",
-      body: data,
+      body: data
     });
-    const data = await response.json();
-    const assignments = data.assignments;
+    const json = await response.json();
+    const assignments = json.assignment;
     const titlesContainer = document.getElementById("titles-container");
 
     assignments.forEach((data) => {
@@ -39,7 +39,7 @@ const displayTitles = async () => {
       divElement.classList.add("title-box");
       titlesContainer.appendChild(divElement);
       divElement.addEventListener("click", () => {
-        window.location.href = `/src/pages/assignment.html?classroom_id=${classroom_id}&assignment_id=${data.id}`;
+        window.location.href = `/src/pages/classroom_submit.html?classroom_id=${classroom_id}&assignment_id=${data.id}`;
       });
     });
   } catch (error) {
@@ -60,7 +60,7 @@ const display_announcements = async () => {
 
     try {
       const response = await fetch(
-        "http://localhost:8080/displayannounce.php",
+        "http://localhost/Google-Classroom-Backend/displayannounce.php",
         {
           method: "POST",
           body: data,
@@ -134,7 +134,7 @@ announcements.addEventListener("click", async (e) => {
     data.append("files", files);
     data.append("classroom_id", classroom_id);
     const response = await fetch(
-      "http://localhost:8080/Google-Classroom-Backend/announce.php",
+      "http://localhost/Google-Classroom-Backend/announce.php",
       {
         method: "POST",
         body: data,
