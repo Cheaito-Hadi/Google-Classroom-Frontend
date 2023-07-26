@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/src/styles/index.css">
+    <title>Google classroom</title>
+</head>
+
+<body>
+    <div class="container-email">
+        <div class="form">
+            <div class="signin-form">
+                <img id="logo" src="/assets/images/google.svg">
+                <h2 id="signin">Sign in</h2>
+                <p id="info">Use your Google account</p>
+            </div>
+            <div class="form-email">
+                <input class="input-email" id="email_in" placeholder="Email" required>
+            </div>
+            <div class="create-account">
+                <a href="/src/pages/register.html"><button id="create">Create account</button></a>
+                <button id="next" class="next">Next</button>
+            </div>
+        </div>
+    </div>
+    <div class="container-password">
+        <div class="form">
+            <div class="signin-form">
+                <img id="logo" src="/assets/images/google.svg">
+                <h2 id="signin">Welcome</h2>
+            </div>
+            <div class="form-password">
+                <input class="input-password" id="password" type="password" placeholder="Enter your password" required>
+            </div>
+            <div class="wrong-password"></div>
+            <div class="create-account">
+                <a id="forgot-password" href="/src/pages/forgot.html">Forgot password?</a>
+                <button id="login" class="next">Login</button>
+            </div>
+        </div>
+    </div>
+    <script src="/src/scripts/login.js"></script>
+</body>
+
+</html>
