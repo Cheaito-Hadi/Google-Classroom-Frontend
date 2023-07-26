@@ -15,11 +15,12 @@ try {
       body: data,
     });
 
-    if (response.ok) {
-      const responseData = await response.json();
 
-      if (responseData.length > 0) {
-        const password = responseData[0].password;
+      const responseData = await response.json();
+      console.log(responseData)
+
+      if (responseData.status == "success" ) {
+        // const password = responseData[0].password;
         const dataContainer = document.getElementById("data-container");
         dataContainer.innerHTML = '';
         const formElement = document.createElement("form");
@@ -41,26 +42,23 @@ try {
           const new_password = newPasswordInput.value;
 
           try {
-            const updateData = new FormData();
-            updateData.append("email", recovery_email);
-            updateData.append("answer", recovery_answer);
-            updateData.append("new_password", new_password);
+            const updatePassword = new FormData();
+            updatePassword.append("email", recovery_email);
+            updatePassword.append("new_password", new_password);
 
-            const updateResponse = await fetch("http://localhost/Google-Classroom-Backend/forgot.php", {
+            const request_pass = await fetch("http://localhost/Google-Classroom-Backend/resetPassword.php", {
               method: "POST",
-              body: updateData,
+              body: updatePassword,
             });
-
-            if (updateResponse.ok) {
-              const updateResult = await updateResponse.json();
-              if (updateResult.status === "success") {
-                console.log("Password updated successfully!");
+            console.log(request_pass)
+            
+              const updatedPass = await request_pass.json();
+              if (updatedPass.status === "success") {
+                console.log("change password");
               } else {
-                console.log("Failed to update password.");
+                console.log("Failed");
               }
-            } else {
-              console.log("Failed to update password. Server response not OK.");
-            }
+           
           } catch (error) {
             console.log(error);
           }
@@ -68,10 +66,8 @@ try {
       } else {
         console.log("Sorry, recovery failed");
       }
-    } else {
-      console.log("Failed to retrieve user data for recovery.");
-    }
+
   } catch (error) {
     console.log(error);
   }
-});
+})

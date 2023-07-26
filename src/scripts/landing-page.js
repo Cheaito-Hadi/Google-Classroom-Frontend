@@ -3,7 +3,7 @@ const user = JSON.parse(localStorage.getItem("user"));
 document.addEventListener("DOMContentLoaded", async function () {
   try {
     const response = await fetch(
-      "http://localhost/Google-Classroom-Backend/students/get-classes.php"
+      "http://localhost/Google-Classroom-Backend/get-classes.php"
     );
     const res = await response.json();
     console.log(res);
@@ -55,6 +55,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             </div>
             <img src=${image} alt="" srcset="">
             <div class="description">${subject}</div>`;
+<<<<<<< HEAD
     }
     const class_container = document.querySelector(".card-container");
     classes.forEach((ele) => {
@@ -70,6 +71,22 @@ document.addEventListener("DOMContentLoaded", async function () {
       card.addEventListener("click", () => {
         window.location.href = `stream.html?id=${ele.id_classroom}`;
       });
+=======
+  }
+  const class_container = document.querySelector(".card-container");
+  classes.forEach((ele) => {
+    const card = document.createElement("div");
+    card.classList.add("card");
+    card.innerHTML = displayClasses(
+      ele.class_name,
+      ele.section,
+      ele.subject,
+      ele.image
+    );
+    class_container.appendChild(card);
+    card.addEventListener("click", () => {
+      window.location.href = `classroom.html?id=${ele.id_classroom}`;
+>>>>>>> 492f2c29cb048b79698935f054241f104c783ebc
     });
   }
   // diplay classes in sidebar
@@ -163,7 +180,7 @@ async function createClass() {
 
   try {
     const response = await fetch(
-      "http://localhost/Google-Classroom-Backend/teachers/create_class_room.php",
+      "http://localhost/Google-Classroom-Backend/create_class_room.php",
       {
         method: "POST",
         body: data,
@@ -206,7 +223,7 @@ join_btn.addEventListener("click", async function () {
   joined_class.append("id_classRoom", selectedOption);
   try {
     const response = await fetch(
-      "http://localhost/Google-Classroom-Backend/students/joined_class.php",
+      "http://localhost/Google-Classroom-Backend/joined_class.php",
       {
         method: "POST",
         body: joined_class,

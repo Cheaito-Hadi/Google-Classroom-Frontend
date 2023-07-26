@@ -55,11 +55,11 @@
     cursor: pointer;
 }
 
-// @media (max-width: 497px) {
-//     .right-side-nav .profile-pic {
-//         display: none;
-//     }
-// }
+ @media (max-width: 497px) {
+    .right-side-nav .profile-pic {
+        display: none;
+    }
+}
 
 .user-info-list {
     display: none;
