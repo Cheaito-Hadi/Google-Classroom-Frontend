@@ -27,22 +27,20 @@ for (i = 0; i < classes.length; i++) {
   }
 }
 
-document.querySelector(".hero-title h1").innerHTML = class_name;
-document.querySelector(".hero-title h4").innerHTML = section;
+// document.querySelector(".hero-title h1").innerHTML = class_name;
+// document.querySelector(".hero-title h4").innerHTML = section;
 
-document.querySelector(".join-google").addEventListener("click", () => {
-  const urlParams = new URLSearchParams(window.location.search);
-  const classroom_id = urlParams.get("id");
-  const classes_local = JSON.parse(localStorage.getItem("classes"));
-  for (i = 0; i < classes_local.length; i++) {
-    if (classes_local[i].id == classroom_id) {
-      const google_meet = classes_local.google_link;
-
-      // Open the external website in a new tab/window
-      window.open(google_meet, "_blank");
-    }
-  }
-});
+// document.querySelector(".join-google").addEventListener("click", () => {
+//   const urlParams = new URLSearchParams(window.location.search);
+//   const classroom_id = urlParams.get("id");
+//   const classes_local = JSON.parse(localStorage.getItem("classes"));
+//   for (i = 0; i < classes_local.length; i++) {
+//     if (classes_local[i].id == classroom_id) {
+//       const google_meet = classes_local.google_link;
+//       window.open(google_meet, "_blank");
+//     }
+//   }
+// });
 function viewAssignment(arr_assign) {
   const assign_list = document.getElementById("ul-assign");
 
@@ -90,10 +88,9 @@ async function fetchAssignment() {
     );
     const json = await response.json();
     const assignments = json.assignments;
-    console.log(assignments);
     viewAssignment(assignments);
   } catch (e) {
-    console.log(e);
+    console.error(e);
   }
 }
 
@@ -115,7 +112,6 @@ create_btn.addEventListener("click", () => {
   window.location.href = `/src/pages/assignment.html?id=${classroom_id}`;
 });
 
-// const classes = JSON.parse(localStorage.getItem("classes"));
 function sidebarClasses(title, section, image) {
   return `<img src=${image} class="sidebar-class-image"  alt="" srcset="">
             <div class="class-info">
@@ -148,13 +144,12 @@ const user = JSON.parse(localStorage.getItem("user"));
 
 let profile_pic = document.querySelectorAll(".profile-pic");
 profile_pic.forEach((ele) => {
-  console.log(ele);
-  ele.style.backgroundImage = `url(${user.image})`;
+  ele.style.backgroundImage = `url(${user.profile_image})`;
 });
 
 const user_name = document.querySelectorAll(".user-name");
 user_name.forEach((ele) => {
-  ele.innerHTML = user.name;
+  ele.innerHTML = `${user.first_name} ${user.last_name}`;
 });
 
 const user_email = document.querySelectorAll(".user-email");

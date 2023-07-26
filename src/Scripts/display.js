@@ -35,8 +35,8 @@ for (i = 0; i < classes_local.length; i++) {
   }
 }
 
-document.querySelector(".hero-title h1").innerHTML = class_name;
-document.querySelector(".hero-title h4").innerHTML = section;
+// document.querySelector(".hero-title h1").innerHTML = class_name;
+// document.querySelector(".hero-title h4").innerHTML = section;
 
 const share_link = document.querySelector(".btn-share-link");
 const add_meet_link = document.querySelector(".create-share-link");
@@ -117,7 +117,7 @@ const displayTitles = async () => {
       });
     });
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 
@@ -181,7 +181,7 @@ const display_announcements = async () => {
         }
       });
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   });
 };
@@ -215,7 +215,7 @@ announcements.addEventListener("click", async (e) => {
       }
     );
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 });
 
@@ -224,7 +224,7 @@ const displayAllTitles = async () => {
     await displayTitles();
     await display_announcements();
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 };
 
@@ -268,7 +268,6 @@ classes.forEach((ele) => {
 
 const user = JSON.parse(localStorage.getItem("user"));
 
-//show and hide sidebar
 const show_sidebar = document.querySelector(".show-side-bar");
 const sidebar = document.querySelector(".side-bar");
 show_sidebar.addEventListener("click", () => {
@@ -282,13 +281,12 @@ document.addEventListener("click", (event) => {
 
 let profile_pic = document.querySelectorAll(".profile-pic");
 profile_pic.forEach((ele) => {
-  console.log(ele);
-  ele.style.backgroundImage = `url(${user.image})`;
+  ele.style.backgroundImage = `url(${user.profile_image})`;
 });
 
 const user_name = document.querySelectorAll(".user-name");
 user_name.forEach((ele) => {
-  ele.innerHTML = user.name;
+  ele.innerHTML = `${user.first_name} ${user.last_name}`;
 });
 
 const user_email = document.querySelectorAll(".user-email");

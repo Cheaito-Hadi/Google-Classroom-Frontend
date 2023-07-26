@@ -27,7 +27,7 @@ pages.getTeacher = async () => {
       teacher_body.innerHTML += new_item;
     });
   } catch (e) {
-    console.log("Error: " + e);
+    console.error("Error: " + e);
   }
 };
 pages.getStudent = async () => {
@@ -41,7 +41,7 @@ pages.getStudent = async () => {
       student_body.innerHTML += new_item;
     });
   } catch (e) {
-    console.log("Error: " + e);
+    console.error("Error: " + e);
   }
 };
 pages.getNumber = async () => {
@@ -50,7 +50,7 @@ pages.getNumber = async () => {
     const json = await response.json();
     number_of_students.innerHTML = json + " students";
   } catch (e) {
-    console.log("Error :" + e);
+    console.error("Error :" + e);
   }
 };
 const urlParams = new URLSearchParams(window.location.search);
@@ -110,13 +110,12 @@ const user = JSON.parse(localStorage.getItem("user"));
 
 let profile_pic = document.querySelectorAll(".profile-pic");
 profile_pic.forEach((ele) => {
-  console.log(ele);
-  ele.style.backgroundImage = `url(${user.image})`;
+  ele.style.backgroundImage = `url(${user.profile_image})`;
 });
 
 const user_name = document.querySelectorAll(".user-name");
 user_name.forEach((ele) => {
-  ele.innerHTML = user.name;
+  ele.innerHTML = `${user.first_name} ${user.last_name}`;
 });
 
 const user_email = document.querySelectorAll(".user-email");

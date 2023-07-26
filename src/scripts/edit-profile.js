@@ -1,6 +1,5 @@
 const user = JSON.parse(localStorage.getItem("user"));
 
-// add user profile pic - navbar and user-info-list
 let profile_pic = document.querySelectorAll(".profile-pic");
 profile_pic.forEach((ele) => {
   ele.style.backgroundImage = `url(${user.image})`;

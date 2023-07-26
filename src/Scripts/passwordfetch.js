@@ -17,10 +17,8 @@ try {
 
 
       const responseData = await response.json();
-      console.log(responseData)
 
       if (responseData.status == "success" ) {
-        // const password = responseData[0].password;
         const dataContainer = document.getElementById("data-container");
         dataContainer.innerHTML = '';
         const formElement = document.createElement("form");
@@ -50,24 +48,23 @@ try {
               method: "POST",
               body: updatePassword,
             });
-            console.log(request_pass)
             
               const updatedPass = await request_pass.json();
               if (updatedPass.status === "success") {
-                console.log("change password");
+                window.location.href="index.html"
               } else {
-                console.log("Failed");
+                console.error("Failed");
               }
            
           } catch (error) {
-            console.log(error);
+            console.error(error);
           }
         });
       } else {
-        console.log("Sorry, recovery failed");
+        console.error("Sorry, recovery failed");
       }
 
   } catch (error) {
-    console.log(error);
+    console.error(error);
   }
 })

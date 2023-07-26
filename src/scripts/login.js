@@ -24,17 +24,16 @@ next.addEventListener("click", async () => {
             password_container.style.display = "block"
         }
         else {
-            console.log("User not found");
+            console.error("User not found");
         }
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 })
     const login = document.getElementById("login")
     login.addEventListener("click", async () => {
       const password = document.getElementById("password").value;
       const user_email = JSON.parse(localStorage.getItem("email"));
-      console.log(user_email);
 
       const data = new FormData();
 
@@ -50,7 +49,6 @@ next.addEventListener("click", async () => {
         );
 
         const result = await response.json();
-        console.log(result)
 
         if (result.status === "logged-in") {
           window.location.href = "/src/pages/landing-page.html";
@@ -63,4 +61,3 @@ next.addEventListener("click", async () => {
         console.error(error);
       }
     });
-    // const user = JSON.parse(localStorage.getItem("user"));
