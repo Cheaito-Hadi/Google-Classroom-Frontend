@@ -13,10 +13,7 @@ for (let i = 0; i < teacher.length; i++) {
   teacher_classes.add(teacher[i].classRoom_id);
 }
 
-// const techer_matching_class = teacher.find(
-//   (obj) => obj.classRoom_id === classroom_id
-// );
-// const teacher_id = techer_matching_class.id;
+
 
 classes.forEach((post) => {
   if (teacher_classes.has(post.id_classroom)) {

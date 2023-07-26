@@ -17,6 +17,32 @@ if (teacher) {
     }
   }
 }
+const classes = JSON.parse(localStorage.getItem("classes"));
+let class_name;
+let section;
+for (i = 0; i < classes.length; i++) {
+  if (classes[i].id == classroom_id) {
+    class_name = classes[i].name;
+    section = classes[i].section;
+  }
+}
+
+document.querySelector(".hero-title h1").innerHTML = class_name;
+document.querySelector(".hero-title h4").innerHTML = section;
+
+document.querySelector(".join-google").addEventListener("click", () => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const classroom_id = urlParams.get("id");
+  const classes_local = JSON.parse(localStorage.getItem("classes"));
+  for (i = 0; i < classes_local.length; i++) {
+    if (classes_local[i].id == classroom_id) {
+      const google_meet = classes_local.google_link;
+
+      // Open the external website in a new tab/window
+      window.open(google_meet, "_blank");
+    }
+  }
+});
 function viewAssignment(arr_assign) {
   const assign_list = document.getElementById("ul-assign");
 
@@ -89,7 +115,7 @@ create_btn.addEventListener("click", () => {
   window.location.href = `/src/pages/assignment.html?id=${classroom_id}`;
 });
 
-const classes = JSON.parse(localStorage.getItem("classes"));
+// const classes = JSON.parse(localStorage.getItem("classes"));
 function sidebarClasses(title, section, image) {
   return `<img src=${image} class="sidebar-class-image"  alt="" srcset="">
             <div class="class-info">

@@ -96,6 +96,16 @@ classes.forEach((ele) => {
   });
 });
 
+const classes_local = JSON.parse(localStorage.getItem("classes"));
+let class_name;
+let section;
+for (i = 0; i < classes_local.length; i++) {
+  if (classes_local[i].id == classroom_id) {
+    class_name = classes_local[i].name;
+    section = classes_local[i].section;
+  }
+}
+
 const user = JSON.parse(localStorage.getItem("user"));
 
 let profile_pic = document.querySelectorAll(".profile-pic");

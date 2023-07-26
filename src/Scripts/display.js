@@ -25,6 +25,18 @@ if (is_student) {
 if (is_teacher) {
   document.querySelector(".meet").classList.add("teacher-meet");
 }
+const classes_local = JSON.parse(localStorage.getItem("classes"));
+let class_name;
+let section;
+for (i = 0; i < classes_local.length; i++) {
+  if (classes_local[i].id == classroom_id) {
+    class_name = classes_local[i].name;
+    section = classes_local[i].section;
+  }
+}
+
+document.querySelector(".hero-title h1").innerHTML = class_name;
+document.querySelector(".hero-title h4").innerHTML = section;
 
 const share_link = document.querySelector(".btn-share-link");
 const add_meet_link = document.querySelector(".create-share-link");
@@ -101,7 +113,7 @@ const displayTitles = async () => {
       divElement.classList.add("title-box");
       titlesContainer.appendChild(divElement);
       divElement.addEventListener("click", () => {
-        window.location.href = `/src/pages/classroom_submit.html?classroom_id=${classroom_id}&assignment_id=${data.id}`;
+        window.location.href = `/src/pages/classroom_submit.html?id=${classroom_id}&assignment_id=${data.id}`;
       });
     });
   } catch (error) {
@@ -164,7 +176,7 @@ const display_announcements = async () => {
           divElement.classList.add("title-box");
           announce_container.appendChild(divElement);
           divElement.addEventListener("click", () => {
-            window.location.href = `/src/pages/assignment.html?classroom_id=${classroom_id}&announcment_id=${data.id}`;
+            window.location.href = `/src/pages/assignment.html?id=${classroom_id}&announcment_id=${data.id}`;
           });
         }
       });
@@ -230,34 +242,29 @@ document.querySelector(".people-navigation").addEventListener("click", () => {
   window.location.href = `/src/pages/people.html?id=${classroom_id}`;
 });
 
-// const classes = JSON.parse(localStorage.getItem("classes"));
-// function sidebarClasses(title, section, image) {
-//   return `<img src=${image} class="sidebar-class-image"  alt="" srcset="">
-//             <div class="class-info">
-//                 <div class="class-name-sidebar">${title}</div>
-//                 <div class="class-section-sidebar">${section}</div>
-//             </div>`;
-// }
-// const show_sidebar = document.querySelector(".show-side-bar");
-// const sidebar = document.querySelector(".side-bar");
-// show_sidebar.addEventListener("click", () => {
-//   sidebar.classList.toggle("show");
-// });
+const classes = JSON.parse(localStorage.getItem("classes"));
+function sidebarClasses(title, section, image) {
+  return `<img src=${image} class="sidebar-class-image"  alt="" srcset="">
+            <div class="class-info">
+                <div class="class-name-sidebar">${title}</div>
+                <div class="class-section-sidebar">${section}</div>
+            </div>`;
+}
 
-// const classes_sidebar = document.querySelector(".classes-list");
-// classes.forEach((ele) => {
-//   const sidebar_class = document.createElement("div");
-//   sidebar_class.classList.add("class");
-//   sidebar_class.innerHTML = sidebarClasses(
-//     ele.class_name,
-//     ele.section,
-//     ele.image
-//   );
-//   classes_sidebar.appendChild(sidebar_class);
-//   sidebar_class.addEventListener("click", () => {
-//     window.location.href = `/src/pages/classroom.html?id=${ele.id_classroom}`;
-//   });
-// });
+const classes_sidebar = document.querySelector(".classes-list");
+classes.forEach((ele) => {
+  const sidebar_class = document.createElement("div");
+  sidebar_class.classList.add("class");
+  sidebar_class.innerHTML = sidebarClasses(
+    ele.class_name,
+    ele.section,
+    ele.image
+  );
+  classes_sidebar.appendChild(sidebar_class);
+  sidebar_class.addEventListener("click", () => {
+    window.location.href = `/src/pages/classroom.html?id=${ele.id_classroom}`;
+  });
+});
 
 const user = JSON.parse(localStorage.getItem("user"));
 
