@@ -83,6 +83,7 @@ cancel.addEventListener("click", function () {
 });
 
 document.getElementById("upload_btn").addEventListener("click", function () {
+<<<<<<< HEAD
   document.getElementById("fileToUpload").click();
 });
 
@@ -109,6 +110,28 @@ function handleFileSelect() {
         console.log("Network response was not ok");
       }
       return response.json();
+=======
+    document.getElementById("fileToUpload").click();
+  });
+  
+  document.getElementById("fileToUpload").addEventListener("change", function () {
+    handleFileSelect();
+  });
+  const urlParams = new URLSearchParams(window.location.search);
+  const assignment_id = urlParams.get("assignment_id");
+  function handleFileSelect() {
+    const fileInput = document.getElementById("fileToUpload");
+    
+  
+    const formData = new FormData();
+    formData.append("fileToUpload", fileInput.files[0]);
+    formData.append("student_id", student_id);
+    formData.append("assignment_id", assignment_id);
+  
+    fetch("http://localhost/Google-Classroom-Backend/assignment_uploads.php", {
+      method: "POST",
+      body: formData,
+>>>>>>> 464ab6cc07406fc0dc85dd45ee6b0a7db4839687
     })
     .then(function (data) {
       if (data.message === "File uploaded and data inserted successfully.") {

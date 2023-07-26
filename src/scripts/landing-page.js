@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   let profile_pic = document.querySelectorAll(".profile-pic");
   profile_pic.forEach((ele) => {
     console.log(ele);
-    ele.style.backgroundImage = `url(${user.image})`;
+    ele.style.backgroundImage = `url(${user.profile_image})`;
   });
   const user_name = document.querySelectorAll(".user-name");
   user_name.forEach((ele) => {
