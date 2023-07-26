@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", async function () {
  
   try {
     const response = await fetch(
-      "http://localhost/Google-Classroom-Backend/students/get-classes.php"
+      "http://localhost/Google-Classroom-Backend/get-classes.php"
     );
     const res = await response.json();
     console.log(res);
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", async function () {
     );
     class_container.appendChild(card);
     card.addEventListener("click", () => {
-      window.location.href = `stream.html?id=${ele.id_classroom}`;
+      window.location.href = `classroom.html?id=${ele.id_classroom}`;
     });
   });
   }
@@ -173,7 +173,7 @@ async function createClass() {
 
   try {
     const response = await fetch(
-      "http://localhost/Google-Classroom-Backend/teachers/create_class_room.php",
+      "http://localhost/Google-Classroom-Backend/create_class_room.php",
       {
         method: "POST",
         body: data,
@@ -216,7 +216,7 @@ join_btn.addEventListener("click", async function () {
   joined_class.append("id_classRoom", selectedOption);
   try {
     const response = await fetch(
-      "http://localhost/Google-Classroom-Backend/students/joined_class.php",
+      "http://localhost/Google-Classroom-Backend/joined_class.php",
       {
         method: "POST",
         body: joined_class,
