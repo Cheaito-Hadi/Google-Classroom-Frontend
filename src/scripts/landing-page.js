@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   let profile_pic = document.querySelectorAll(".profile-pic");
   profile_pic.forEach((ele) => {
     console.log(ele);
-    ele.style.backgroundImage = `url(${user.image})`;
+    ele.style.backgroundImage = `url(${user.profile_image})`;
   });
   const user_name = document.querySelectorAll(".user-name");
   user_name.forEach((ele) => {
@@ -55,23 +55,6 @@ document.addEventListener("DOMContentLoaded", async function () {
             </div>
             <img src=${image} alt="" srcset="">
             <div class="description">${subject}</div>`;
-<<<<<<< HEAD
-    }
-    const class_container = document.querySelector(".card-container");
-    classes.forEach((ele) => {
-      const card = document.createElement("div");
-      card.classList.add("card");
-      card.innerHTML = displayClasses(
-        ele.class_name,
-        ele.section,
-        ele.subject,
-        ele.image
-      );
-      class_container.appendChild(card);
-      card.addEventListener("click", () => {
-        window.location.href = `stream.html?id=${ele.id_classroom}`;
-      });
-=======
   }
   const class_container = document.querySelector(".card-container");
   classes.forEach((ele) => {
@@ -86,9 +69,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     class_container.appendChild(card);
     card.addEventListener("click", () => {
       window.location.href = `classroom.html?id=${ele.id_classroom}`;
->>>>>>> 492f2c29cb048b79698935f054241f104c783ebc
     });
-  }
+  })
   // diplay classes in sidebar
   function sidebarClasses(title, section, image) {
     return `<img src=${image} class="sidebar-class-image"  alt="" srcset="">
@@ -97,7 +79,7 @@ document.addEventListener("DOMContentLoaded", async function () {
                 <div class="class-section-sidebar">${section}</div>
             </div>`;
   }
-  const classes_sidebar = document.querySelector(".classes-list");
+  const classes_sidebar = document.querySelector(".classes-list")
   classes.forEach((ele) => {
     const sidebar_class = document.createElement("div");
     sidebar_class.classList.add("class");
@@ -111,7 +93,8 @@ document.addEventListener("DOMContentLoaded", async function () {
       window.location.href = `/src/pages/classroom.html?id=${ele.id_classroom}`;
     });
   });
-});
+};
+})
 
 //show and hide sidebar
 const show_sidebar = document.querySelector(".show-side-bar");
@@ -277,4 +260,4 @@ document.addEventListener("click", function (event) {
 document.querySelector(".sign-out").addEventListener("click", () => {
   localStorage.clear();
   window.location.href = "/index.html";
-});
+})

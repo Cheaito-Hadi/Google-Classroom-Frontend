@@ -92,9 +92,8 @@ document.getElementById("upload_btn").addEventListener("click", function () {
   document.getElementById("fileToUpload").addEventListener("change", function () {
     handleFileSelect();
   });
-
-const student_id = 1; // Replace this with student_id from local storage
-const assignment_id = 1; // Replace this with  assignment_id from local storage
+  const urlParams = new URLSearchParams(window.location.search);
+  const assignment_id = urlParams.get("assignment_id");
   function handleFileSelect() {
     const fileInput = document.getElementById("fileToUpload");
     
