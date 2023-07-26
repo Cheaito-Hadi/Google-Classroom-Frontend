@@ -1,19 +1,36 @@
+let is_teacher = false;
+let is_student = false;
 const urlParams = new URLSearchParams(window.location.search);
 const classroom_id = urlParams.get("id");
+const teacher = JSON.parse(localStorage.getItem("teacher"));
+const student = JSON.parse(localStorage.getItem("student"));
+if (teacher) {
+  for (i = 0; i < teacher.length; i++) {
+    if (teacher[i].classRoom_id == classroom_id) {
+      is_teacher = true;
+    }
+  }
+} else if (student) {
+  for (i = 0; i < student.length; i++) {
+    if (student[i].classRoom_id == classroom_id) {
+      is_student = true;
+    }
+  }
+}
 function viewAssignment(arr_assign) {
   const assign_list = document.getElementById("ul-assign");
 
   assign_list.innerHTML = "";
 
   const topics_set = new Set();
-  for (let i = 0; i < 2; i++) {
+  for (let i = 0; i < arr_assign.length; i++) {
     topics_set.add(arr_assign[i].topic);
   }
 
   const topics = [...topics_set];
   topics.forEach((item) => {
-    let assign_ul = document.createElement("ul")
-    assign_ul.innerHTML= `${item}`
+    let assign_ul = document.createElement("ul");
+    assign_ul.innerHTML = `${item}`;
     arr_assign.forEach((assignment) => {
       if (assignment.topic == item) {
         let assign_li = document.createElement("li");
@@ -30,7 +47,7 @@ function viewAssignment(arr_assign) {
         assign_li.classList.add("assign-li");
       }
     });
-    assign_list.appendChild(assign_ul)
+    assign_list.appendChild(assign_ul);
   });
 }
 
@@ -47,7 +64,7 @@ async function fetchAssignment() {
     );
     const json = await response.json();
     const assignments = json.assignments;
-    console.log(assignments)
+    console.log(assignments);
     viewAssignment(assignments);
   } catch (e) {
     console.log(e);
@@ -66,11 +83,13 @@ document.querySelector(".stream-navigation").addEventListener("click", () => {
   window.location.href = `/src/pages/classroom.html?id=${classroom_id}`;
 });
 
-document
-  .querySelector(".create-assignment-btn")
-  .addEventListener("click", () => {
-    window.location.href = `/src/pages/assignment.html?id=${classroom_id}`;
-  });
+const create_btn = document.querySelector(".create-assignment-btn");
+if (is_student) {
+  create_btn.style.display = "none";
+}
+create_btn.addEventListener("click", () => {
+  window.location.href = `/src/pages/assignment.html?id=${classroom_id}`;
+});
 
 const classes = JSON.parse(localStorage.getItem("classes"));
 function sidebarClasses(title, section, image) {

@@ -157,17 +157,21 @@ body{
 .hero-middle{
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-content: flex-start;
     width: 1000px;
-    height: 280px;
+    height: 300px;
     border-radius: 15px;
     background-image: url("https://lh3.googleusercontent.com/hr_crs_themes/AJ9_ozkT1dYgt2jfoq5HywEgiW9ZhH0nBx3uX_c2aT7ulteAewpcrlQOZnDNps_RK8HMJr4apBg9Vw0lRorT91gAhpZ6Tx_pOy1eCe43AS0yoUAYoCZwt4MEsQ=s1280");
-    position: absolute;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+
     margin-top: 20px;
+    margin-left: 380px;
+}
+@media (max-width:497px) {
+    .hero-middle {
+        width: 300px;
+        margin-left: 0px;
+    }
 }
 .hero-title{
     padding-top: 100px;
@@ -218,19 +222,25 @@ a:hover{
 
 }
 #announce-field{
-    margin-top: 330px;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 0.3cm;
     flex-direction: column;
+    padding: 20px;
 }
 
 #announce-text{
     width: 500px;
     height: 100px;
     border-radius: 5px;
-    border:1px solid #ccc;
+    border:4px solid #ccc;
+}
+@media (max-width:497px) {
+    #announce-text {
+        width: 300px
+    }
+
 }
 
 #ins-id{
@@ -244,11 +254,12 @@ a:hover{
     border: none;
     background-color: #363738;
     color: #ffffff;
-    margin-bottom: 50px;
 }
 
 #announce-form1{
     display: flex;
+    flex-direction: column;
+        align-items: center;
     gap: 0.5cm;
 }
 
@@ -278,7 +289,6 @@ form{
     background-color: #404244;
   }
   .meet{
-    margin-top:100px;
     border-radius: 15px;
     border : 1px solid #dadce0;
     width: 200px;
@@ -287,10 +297,9 @@ form{
   }
   .form-join{
     display: flex;
-    justify-content: space-around;
-    align-content: flex-start;
+    justify-content: center;
     align-items: center;
-    margin-right: 330px;
+    gap: 20px;
   }
   .meet-logo{
     width: 30px;
